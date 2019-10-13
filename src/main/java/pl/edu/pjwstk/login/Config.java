@@ -6,6 +6,4 @@ import javax.faces.annotation.FacesConfig;
 @ApplicationScoped
 @FacesConfig
 public class Config {
-
-
 }
