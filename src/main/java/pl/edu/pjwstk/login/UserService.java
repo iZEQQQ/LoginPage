@@ -18,6 +18,10 @@ public class UserService {
         }
         return false;
     }
+    public boolean checkPass(String pass){
+        return (users.stream().filter(u -> u.getPass().equals(pass))).equals(true);
+    }
+
 
     public User login(String login, String pass) {
         return users.stream().filter(u -> u.getLogin().equals(login) && u.getPass().equals(pass)).findFirst().orElse(null);

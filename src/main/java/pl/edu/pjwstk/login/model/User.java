@@ -11,6 +11,7 @@ public class User implements Serializable {
     private String name;
     private String bday;
     private String email;
+    private String checkPass;
 
     public String getPass() {
         return pass;
@@ -32,34 +33,12 @@ public class User implements Serializable {
         this.surname = surname;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return Objects.equals(pass, user.pass) &&
-                Objects.equals(login, user.login) &&
-                Objects.equals(surname, user.surname) &&
-                Objects.equals(name, user.name) &&
-                Objects.equals(bday, user.bday) &&
-                Objects.equals(email, user.email);
+    public String getCheckPass() {
+        return checkPass;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "pass='" + pass + '\'' +
-                ", login='" + login + '\'' +
-                ", surname='" + surname + '\'' +
-                ", name='" + name + '\'' +
-                ", bday='" + bday + '\'' +
-                ", email='" + email + '\'' +
-                '}';
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(pass, login, surname, name, bday, email);
+    public void setCheckPass(String checkPass) {
+        this.checkPass = checkPass;
     }
 
     public void setName(String name) {
@@ -89,4 +68,37 @@ public class User implements Serializable {
     public String getEmail() {
         return email;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(pass, user.pass) &&
+                Objects.equals(login, user.login) &&
+                Objects.equals(surname, user.surname) &&
+                Objects.equals(name, user.name) &&
+                Objects.equals(bday, user.bday) &&
+                Objects.equals(email, user.email) &&
+                Objects.equals(checkPass, user.checkPass);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(pass, login, surname, name, bday, email, checkPass);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "pass='" + pass + '\'' +
+                ", login='" + login + '\'' +
+                ", surname='" + surname + '\'' +
+                ", name='" + name + '\'' +
+                ", bday='" + bday + '\'' +
+                ", email='" + email + '\'' +
+                ", checkPass='" + checkPass + '\'' +
+                '}';
+    }
 }
+

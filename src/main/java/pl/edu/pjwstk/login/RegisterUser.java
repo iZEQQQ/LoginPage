@@ -20,6 +20,7 @@ public class RegisterUser implements Serializable {
         return user;
     }
 
+
     public String register() {
         if (userService.register(user)) {
             return "sign_done?faces-redirect=true";
