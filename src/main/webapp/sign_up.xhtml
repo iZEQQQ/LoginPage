@@ -23,8 +23,12 @@
             <h:inputText id="login" value="#{registerUser.user.login}"/>
             <h:message for="login"/>
             <h:outputLabel for="pass" value="Password: "/>
-            <h:inputText id="pass" value="#{registerUser.user.pass}"/>
+            <h:inputSecret id="pass" value="#{registerUser.user.pass}"/>
             <h:message for="pass"/>
+            <h:outputLabel for="checkPass" value="Check password: "/>
+            <h:inputSecret id="checkPass" value="#{registerUser.user.pass}"/>
+            <h:message for="checkPass"/>
+
             <h:commandButton action="#{registerUser.register}" value="Register"/>
         </h:panelGrid>
     </h:form>
