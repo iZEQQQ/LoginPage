@@ -10,21 +10,21 @@
             <h:outputLabel for="name" value="Name: "/>
             <h:inputText id="name" value="#{registerUser.user.name}"/>
             <h:message for="name"/>
-            <h:outputLabel for="name" value="Name: "/>
+            <h:outputLabel for="surname" value="Surame: "/>
             <h:inputText id="surname" value="#{registerUser.user.surname}"/>
-            <h:message for="name"/>
-            <h:outputLabel for="name" value="Name: "/>
+            <h:message for="surname"/>
+            <h:outputLabel for="bday" value="Birth date: "/>
             <h:inputText id="bday" value="#{registerUser.user.bday}"/>
-            <h:message for="name"/>
-            <h:outputLabel for="name" value="Name: "/>
+            <h:message for="bday"/>
+            <h:outputLabel for="email" value="Email: "/>
             <h:inputText id="email" value="#{registerUser.user.email}"/>
-            <h:message for="name"/>
-            <h:outputLabel for="name" value="Name: "/>
+            <h:message for="email"/>
+            <h:outputLabel for="login" value="Login: "/>
             <h:inputText id="login" value="#{registerUser.user.login}"/>
-            <h:message for="name"/>
-            <h:outputLabel for="name" value="Name: "/>
+            <h:message for="login"/>
+            <h:outputLabel for="pass" value="Password: "/>
             <h:inputText id="pass" value="#{registerUser.user.pass}"/>
-            <h:message for="name"/>
+            <h:message for="pass"/>
             <h:commandButton action="#{registerUser.register}" value="Register"/>
         </h:panelGrid>
     </h:form>
