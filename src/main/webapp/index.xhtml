@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:panelGroup rendered="#{userContext.logged}">
 
-</ui:composition>
+    </h:panelGroup>
+    <h:panelGroup rendered="#{not userContext.logged}">
+        <h:link outcome="sign_up.xhtml" value="register"/>
+    </h:panelGroup>
+</f:view>
+</html>

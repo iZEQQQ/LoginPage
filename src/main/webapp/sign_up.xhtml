@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
-    <h:outputLabel value="Hello, world"/>
+    <h:form>
+        <h:panelGrid columns="3">
+            <h:outputLabel for="name" value="Name: "/>
+            <h:inputText id="name" value="#{registerUser.user.name}"/>
+            <h:message for="name"/>
+            <h:outputLabel for="name" value="Name: "/>
+            <h:inputText id="surname" value="#{registerUser.user.surname}"/>
+            <h:message for="name"/>
+            <h:outputLabel for="name" value="Name: "/>
+            <h:inputText id="bday" value="#{registerUser.user.bday}"/>
+            <h:message for="name"/>
+            <h:outputLabel for="name" value="Name: "/>
+            <h:inputText id="email" value="#{registerUser.user.email}"/>
+            <h:message for="name"/>
+            <h:outputLabel for="name" value="Name: "/>
+            <h:inputText id="login" value="#{registerUser.user.login}"/>
+            <h:message for="name"/>
+            <h:outputLabel for="name" value="Name: "/>
+            <h:inputText id="pass" value="#{registerUser.user.pass}"/>
+            <h:message for="name"/>
+            <h:commandButton action="#{registerUser.register}" value="Register"/>
+        </h:panelGrid>
+    </h:form>
 </f:view>
 </html>
