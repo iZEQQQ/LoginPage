@@ -20,9 +20,12 @@ public class RegisterUser implements Serializable {
         return user;
     }
 
+    public boolean passCheck(){
+        return userService.checkPass();
+    }
 
     public String register() {
-        if (userService.register(user)) {
+        if (userService.register(user) && passCheck()) {
             return "sign_done?faces-redirect=true";
         }
         return null;

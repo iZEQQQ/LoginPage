@@ -3,9 +3,9 @@ package pl.edu.pjwstk.login;
 import pl.edu.pjwstk.login.model.User;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.context.SessionScoped;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 @ApplicationScoped
 public class UserService {
@@ -18,8 +18,9 @@ public class UserService {
         }
         return false;
     }
-    public boolean checkPass(String pass){
-        return (users.stream().filter(u -> u.getPass().equals(pass))).equals(true);
+    public boolean checkPass(){
+        User user = new User();
+        return (user.getPass()).equals(user.getCheckPass());
     }
 
 

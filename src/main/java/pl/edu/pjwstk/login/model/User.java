@@ -69,6 +69,7 @@ public class User implements Serializable {
         return email;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
