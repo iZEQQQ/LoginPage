@@ -1,6 +1,7 @@
 package pl.edu.pjwstk.login.model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Objects;
 
 
@@ -9,7 +10,7 @@ public class User implements Serializable {
     private String login;
     private String surname;
     private String name;
-    private String bday;
+    private LocalDate bday;
     private String email;
     private String checkPass;
 
@@ -45,7 +46,7 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    public void setBday(String bday) {
+    public void setBday(LocalDate bday) {
         this.bday = bday;
     }
 
@@ -61,7 +62,7 @@ public class User implements Serializable {
         return name;
     }
 
-    public String getBday() {
+    public LocalDate getBday() {
         return bday;
     }
 

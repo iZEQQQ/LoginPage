@@ -14,20 +14,27 @@
             <h:inputText id="surname" value="#{registerUser.user.surname}"/>
             <h:message for="surname"/>
             <h:outputLabel for="bday" value="Birth date: "/>
-            <h:inputText id="bday" value="#{registerUser.user.bday}"/>
+            <h:inputText id="bday" value="#{registerUser.user.bday}">
+                <f:convertDateTime type="localDate" pattern="dd/MM/yyyy"/>
+            </h:inputText>
             <h:message for="bday"/>
             <h:outputLabel for="email" value="Email: "/>
-            <h:inputText id="email" value="#{registerUser.user.email}"/>
-            <h:message for="email"/>
+            <h:inputText id="email" value="#{registerUser.user.email}">
+                <f:validateLength minimum="5" maximum="10"/>
+                <f:validateRegex pattern=".*[@].*"/>
+            </h:inputText>
+            <h:messages for="email"/>
+
             <h:outputLabel for="login" value="Login: "/>
             <h:inputText id="login" value="#{registerUser.user.login}"/>
             <h:message for="login"/>
             <h:outputLabel for="pass" value="Password: "/>
-            <h:inputSecret id="pass" value="#{registerUser.user.pass}"/>
+            <h:inputSecret id="pass" value="#{registerUser.user.pass}" validator="#{registerUser.validatePass}" />
             <h:message for="pass"/>
             <h:outputLabel for="checkPass" value="Check password: "/>
             <h:inputSecret id="checkPass" value="#{registerUser.user.checkPass}"/>
             <h:message for="checkPass" />
+            <h:messages/>
 
             <h:commandButton action="#{registerUser.register}" value="Register"/>
         </h:panelGrid>

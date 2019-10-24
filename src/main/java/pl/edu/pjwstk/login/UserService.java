@@ -18,10 +18,6 @@ public class UserService {
         }
         return false;
     }
-    public boolean checkPass(){
-        User user = new User();
-        return (user.getPass()).equals(user.getCheckPass());
-    }
 
 
     public User login(String login, String pass) {
