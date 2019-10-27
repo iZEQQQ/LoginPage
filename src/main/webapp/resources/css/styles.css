@@ -1,19 +1,14 @@
-.navbar  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    background-color: navy;
+body {
+    height: 60vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+
 }
 
-.navbar li {
-    display: inline;
-}
-
-.navbar a, .navbar a:visited {
-    color: white;
-    margin: 20px;
-}
-
-.active {
-    background-color: darkred;
+.form {
+    width: 50%;
+    position: relative;
+    height: 50px;
 }
