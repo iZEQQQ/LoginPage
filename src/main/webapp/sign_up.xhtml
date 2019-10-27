@@ -40,7 +40,9 @@
             <h:message for="login"/>
 
             <h:outputLabel for="pass" value="Password: "/>
-            <h:inputSecret id="pass" value="#{registerUser.user.pass}" validator="#{registerUser.validatePass}" />
+            <h:inputSecret id="pass" value="#{registerUser.user.pass}" validator="#{registerUser.validatePass}" >
+                <f:validateRegex pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])"/>
+            </h:inputSecret>
             <h:message for="pass"/>
 
             <h:outputLabel for="checkPass" value="Check password: "/>
