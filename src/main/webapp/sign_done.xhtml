@@ -9,11 +9,11 @@
     <h:form>
         <h:panelGrid columns="3" >
             <h:outputLabel for="login" value="Login: "/>
-            <h:inputText id="login" value="#{login.login}"/>
+            <h:inputText id="login" value="#{login.user.login}"/>
             <h:message for="login"/>
 
             <h:outputLabel for="pass" value="Password: "/>
-            <h:inputSecret id="pass" value="#{login.pass}"/>
+            <h:inputSecret id="pass" value="#{login.user.pass}"/>
             <h:message for="pass"/>
 
             <h:commandButton action="#{login.loginUser}" value="Login in"/>

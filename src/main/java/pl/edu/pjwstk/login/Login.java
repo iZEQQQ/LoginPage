@@ -19,24 +19,7 @@ import java.io.Serializable;
 public class Login implements Serializable {
 
     private User user = new User();
-    private String login;
-    private String pass;
 
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getPass() {
-        return pass;
-    }
-
-    public void setPass(String pass) {
-        this.pass = pass;
-    }
 
     @Inject
     private UserService userService;
@@ -52,7 +35,7 @@ public class Login implements Serializable {
             return null;
         }
         if (userService.login(user.getLogin(),user.getPass()).equals(getUser())) {
-            return "loggedWelcome?faces-redirect=true";
+            return "logged_welcome?faces-redirect=true";
         }
         return null;
 
