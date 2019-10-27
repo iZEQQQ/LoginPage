@@ -46,22 +46,16 @@ public class Login implements Serializable {
     }
 
 
-    public void loginUser() {
-
-        FacesContext context = FacesContext.getCurrentInstance();
-
-        if(userService.login(getLogin(),getPass()).equals(user)){
-            context.getExternalContext().getSessionMap().put("user", user.getLogin());
-            try {
-                context.getExternalContext().redirect("loggedWelcome.xhtml");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+    public String loginUser() {
+        if (!(userService.login(user.getLogin(),user.getPass()).equals(getUser()))) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("not match"));
+            return null;
         }
-        else  {
-            context.addMessage(null, new FacesMessage("Authentication Failed. Check username or password."));
-
+        if (userService.login(user.getLogin(),user.getPass()).equals(getUser())) {
+            return "loggedWelcome?faces-redirect=true";
         }
+        return null;
+
     }
 
 }
