@@ -4,9 +4,12 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
+<f:view >
+    <h1>User Login form</h1>
+
     <h:form>
-        <h:panelGrid columns="3">
+
+        <h:panelGrid columns="3" >
             <h:outputLabel for="login" value="Login: "/>
             <h:inputText id="login" value="#{login.login}"/>
             <h:message for="login"/>
@@ -16,6 +19,7 @@
             <h:message for="pass"/>
 
             <h:commandButton action="#{login.loginUser}" value="Login in"/>
+            <h:commandButton action="sign_up" value="Register"/>
         </h:panelGrid>
     </h:form>
 </f:view>

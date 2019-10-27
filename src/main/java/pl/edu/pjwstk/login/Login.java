@@ -3,12 +3,14 @@ package pl.edu.pjwstk.login;
 
 import pl.edu.pjwstk.login.model.User;
 
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
+
 
 @Named
 @ViewScoped
@@ -42,14 +44,14 @@ public class Login implements Serializable {
 
 
     public String loginUser() {
-        System.out.println("Hi, please log in.");
-        if (!(login.equals(getLogin()) && pass.equals(getPass()))) {
+        System.out.println("MOja wina w nullu");
+        if (!(user.getLogin().equals(getLogin()) && user.getPass().equals(getPass()))) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("invalid login or password"));
             return null;
         }
 
         if (userService.login(user.getLogin(), user.getPass()).equals(getUser())) {
-            return "sign_done?faces-redirect=true";
+            return "loggedWelcome?faces-redirect=true";
 
         }
         return null;
