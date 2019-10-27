@@ -36,6 +36,7 @@ public class RegisterUser implements Serializable {
 
     }
 
+
     public String register() {
         System.out.println(user.toString());
         if (!user.getPass().equals(user.getCheckPass())) {

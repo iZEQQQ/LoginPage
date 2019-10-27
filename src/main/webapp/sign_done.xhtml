@@ -5,6 +5,18 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
-    <h:link outcome="index.xhtml" value="index"/>
+    <h:form>
+        <h:panelGrid columns="3">
+            <h:outputLabel for="login" value="Login: "/>
+            <h:inputText id="login" value="#{login.login}"/>
+            <h:message for="login"/>
+
+            <h:outputLabel for="pass" value="Password: "/>
+            <h:inputSecret id="pass" value="#{login.pass}"/>
+            <h:message for="pass"/>
+
+            <h:commandButton action="#{login.loginUser}" value="Login in"/>
+        </h:panelGrid>
+    </h:form>
 </f:view>
 </html>
