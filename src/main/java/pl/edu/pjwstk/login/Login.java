@@ -3,18 +3,21 @@ package pl.edu.pjwstk.login;
 
 import pl.edu.pjwstk.login.model.User;
 
-import javax.enterprise.context.SessionScoped;
+import javax.enterprise.context.RequestScoped;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-import javax.faces.view.ViewScoped;
+
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.io.IOException;
 import java.io.Serializable;
 
 
 @Named
-@ViewScoped
+@RequestScoped
 public class Login implements Serializable {
+
     private User user = new User();
     private String login;
     private String pass;
@@ -43,18 +46,18 @@ public class Login implements Serializable {
     }
 
 
-    public String loginUser() {
-        System.out.println("MOja wina w nullu");
-        if (!(user.getLogin().equals(getLogin()) && user.getPass().equals(getPass()))) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("invalid login or password"));
-            return null;
+public void loginUser() {
+        FacesContext context = FacesContext.getCurrentInstance();
+        if (getLogin().equals(user.getLogin()) && getPass().equals(user.getPass())) {
+            context.getExternalContext().getSessionMap().put("user", login);
+            try {
+                context.getExternalContext().redirect("loggedWelcome");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+                context.addMessage(null, new FacesMessage("Authentication Failed"));
         }
-
-        if (userService.login(user.getLogin(), user.getPass()).equals(getUser())) {
-            return "loggedWelcome?faces-redirect=true";
-
-        }
-        return null;
     }
 
 }

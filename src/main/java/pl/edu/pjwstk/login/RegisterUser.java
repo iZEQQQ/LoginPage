@@ -32,19 +32,13 @@ public class RegisterUser implements Serializable {
             System.out.println(user.toString());
             throw new ValidatorException(new FacesMessage("too short"));
         }
-
-
     }
-
-
     public String register() {
         System.out.println(user.toString());
         if (!user.getPass().equals(user.getCheckPass())) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("not match"));
             return null;
         }
-
-
         if (userService.register(user)) {
             return "sign_done?faces-redirect=true";
         }
