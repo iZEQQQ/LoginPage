@@ -4,10 +4,10 @@ package pl.edu.pjwstk.login;
 import pl.edu.pjwstk.login.model.User;
 
 import javax.enterprise.context.RequestScoped;
-
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.IOException;
@@ -46,17 +46,21 @@ public class Login implements Serializable {
     }
 
 
-public void loginUser() {
+    public void loginUser() {
+
         FacesContext context = FacesContext.getCurrentInstance();
-        if (getLogin().equals(user.getLogin()) && getPass().equals(user.getPass())) {
-            context.getExternalContext().getSessionMap().put("user", login);
+
+        if(userService.login(getLogin(),getPass()).equals(user)){
+            context.getExternalContext().getSessionMap().put("user", user.getLogin());
             try {
-                context.getExternalContext().redirect("loggedWelcome");
+                context.getExternalContext().redirect("loggedWelcome.xhtml");
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } else {
-                context.addMessage(null, new FacesMessage("Authentication Failed"));
+        }
+        else  {
+            context.addMessage(null, new FacesMessage("Authentication Failed. Check username or password."));
+
         }
     }
 
