@@ -28,7 +28,7 @@ public class Login implements Serializable {
 
     public String loginUser() {
         if (!(userService.login(user.getLogin(),user.getPass()).equals(getUser()))) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("not match"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("wrong password or username"));
             return null;
         }
         if (userService.login(user.getLogin(),user.getPass()).equals(getUser())) {
