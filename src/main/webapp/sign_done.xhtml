@@ -19,11 +19,11 @@
     <h:form>
         <h:panelGrid columns="3" >
             <h:outputLabel for="login" value="Login: "/>
-            <h:inputText id="login" value="#{login.user.login}"/>
+            <h:inputText id="login" value="#{login.user.loginLogin}"/>
             <h:message for="login"/>
 
             <h:outputLabel for="pass" value="Password: "/>
-            <h:inputSecret id="pass" value="#{login.user.pass}"/>
+            <h:inputSecret id="pass" value="#{login.user.loginPass}"/>
             <h:message for="pass"/>
 
             <h:commandButton action="#{login.loginUser}" value="Login in"/>

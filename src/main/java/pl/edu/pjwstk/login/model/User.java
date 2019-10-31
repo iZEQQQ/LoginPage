@@ -13,6 +13,8 @@ public class User implements Serializable {
     private LocalDate bday;
     private String email;
     private String checkPass;
+    private String loginLogin;
+    private String loginPass;
 
     public String getPass() {
         return pass;
@@ -72,6 +74,21 @@ public class User implements Serializable {
 
 
     @Override
+    public String toString() {
+        return "User{" +
+                "pass='" + pass + '\'' +
+                ", login='" + login + '\'' +
+                ", surname='" + surname + '\'' +
+                ", name='" + name + '\'' +
+                ", bday=" + bday +
+                ", email='" + email + '\'' +
+                ", checkPass='" + checkPass + '\'' +
+                ", loginLogin='" + loginLogin + '\'' +
+                ", loginPass='" + loginPass + '\'' +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -82,25 +99,30 @@ public class User implements Serializable {
                 Objects.equals(name, user.name) &&
                 Objects.equals(bday, user.bday) &&
                 Objects.equals(email, user.email) &&
-                Objects.equals(checkPass, user.checkPass);
+                Objects.equals(checkPass, user.checkPass) &&
+                Objects.equals(loginLogin, user.loginLogin) &&
+                Objects.equals(loginPass, user.loginPass);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(pass, login, surname, name, bday, email, checkPass);
+        return Objects.hash(pass, login, surname, name, bday, email, checkPass, loginLogin, loginPass);
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "pass='" + pass + '\'' +
-                ", login='" + login + '\'' +
-                ", surname='" + surname + '\'' +
-                ", name='" + name + '\'' +
-                ", bday='" + bday + '\'' +
-                ", email='" + email + '\'' +
-                ", checkPass='" + checkPass + '\'' +
-                '}';
+    public String getLoginLogin() {
+        return loginLogin;
+    }
+
+    public void setLoginLogin(String loginLogin) {
+        this.loginLogin = loginLogin;
+    }
+
+    public String getLoginPass() {
+        return loginPass;
+    }
+
+    public void setLoginPass(String loginPass) {
+        this.loginPass = loginPass;
     }
 }
 
