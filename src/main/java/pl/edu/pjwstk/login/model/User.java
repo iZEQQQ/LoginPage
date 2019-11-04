@@ -1,12 +1,15 @@
 package pl.edu.pjwstk.login.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
-
+@Entity
 public class User implements Serializable {
     private String pass;
+    @Id
     private String login;
     private String surname;
     private String name;
