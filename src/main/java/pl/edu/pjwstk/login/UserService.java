@@ -3,6 +3,9 @@ package pl.edu.pjwstk.login;
 import pl.edu.pjwstk.login.model.User;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
@@ -11,9 +14,13 @@ import java.util.stream.Stream;
 public class UserService {
     private List<User> users = new ArrayList<>();
 
+    @PersistenceContext
+    private EntityManager em;
+
+    @Transactional
     public boolean register(User user) {
-        if (users.stream().noneMatch(u -> u.getLogin().equals(user.getLogin()))) {
-            users.add(user);
+        if (em.find(User.class, user.getLogin()) == null ) {
+            em.persist(user);
             return true;
         }
         return false;
