@@ -3,7 +3,6 @@ package pl.edu.pjwstk.login;
 
 import pl.edu.pjwstk.login.model.User;
 
-import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
@@ -22,20 +21,21 @@ public class Login implements Serializable {
     @Inject
     private UserService userService;
 
+    @Inject
+    private UserContext userContext;
+
     public User getUser() {
         return user;
     }
 
 
     public String loginUser() {
-        if (!(userService.login(user.getLoginLogin(),user.getLoginPass()).equals(getUser()))) {
+        if (!(userService.login(user.getLoginLogin(), user.getLoginPass()))) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("wrong password or username"));
             return null;
         }
-        if (userService.login(user.getLoginLogin(),user.getLoginPass()).equals(getUser())) {
-            return "logged_welcome?faces-redirect=true";
-        }
-        return null;
+        userContext.setUser(userService.findByLogin(user.getLoginLogin()));
+        return "logged_welcome?faces-redirect=true";
 
     }
 

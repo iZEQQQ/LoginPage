@@ -19,8 +19,11 @@ public class UserService {
         return false;
     }
 
+    public User findByLogin(String login){
+        return users.stream().filter(u -> u.getLogin().equals(login)).findFirst().orElse(null);
+    }
 
-    public User login(String login, String pass) {
-        return users.stream().filter(u -> u.getLogin().equals(login) && u.getPass().equals(pass)).findFirst().orElse(null);
+    public boolean login(String login, String pass) {
+        return users.stream().anyMatch(u -> u.getLogin().equals(login) && u.getPass().equals(pass));
     }
 }
