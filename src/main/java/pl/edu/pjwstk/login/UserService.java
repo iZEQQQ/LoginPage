@@ -12,6 +12,7 @@ import java.util.stream.Stream;
 
 @ApplicationScoped
 public class UserService {
+
     private List<User> users = new ArrayList<>();
 
     @PersistenceContext
