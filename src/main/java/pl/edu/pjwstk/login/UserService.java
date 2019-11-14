@@ -4,6 +4,8 @@ import pl.edu.pjwstk.login.model.User;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
@@ -13,11 +15,18 @@ import java.util.stream.Stream;
 @ApplicationScoped
 public class UserService {
 
+    //private static EntityManagerFactory emf= Persistence.createEntityManagerFactory("pl.edu.pjwstk.login.model.User");
+
     private List<User> users = new ArrayList<>();
 
     @PersistenceContext
     private EntityManager em;
 
+//    public static EntityManager getEntityManager(){
+//        return emf.createEntityManager();
+//    }
+    
+    
     @Transactional
     public boolean register(User user) {
         if (em.find(User.class, user.getLogin()) == null ) {
@@ -28,6 +37,8 @@ public class UserService {
     }
 
     public User findByLogin(String login){
+//        em = getEntityManager();
+//        em.getTransaction().begin();
         return users.stream().filter(u -> u.getLogin().equals(login)).findFirst().orElse(null);
     }
 

@@ -18,9 +18,6 @@ public class UserContext implements Serializable {
         return user;
     }
 
-    public boolean isLogged() {
-        return user != null;
-    }
 
 
 

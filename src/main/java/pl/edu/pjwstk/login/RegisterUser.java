@@ -33,6 +33,7 @@ public class RegisterUser implements Serializable {
             throw new ValidatorException(new FacesMessage("too short"));
         }
     }
+
     public String register() {
         System.out.println(user.toString());
         if (!user.getPass().equals(user.getCheckPass())) {
