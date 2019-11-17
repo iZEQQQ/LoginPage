@@ -1,5 +1,11 @@
-apply plugin: 'java'
-apply plugin: 'maven'
+plugins {
+    id 'java'
+    id 'war'
+}
+
+war {
+//    archiveFileName =  'login.war'
+}
 
 group = 'pl.edu.pjwstk'
 version = '1.0-SNAPSHOT'
@@ -8,16 +14,15 @@ description = """"""
 
 sourceCompatibility = 11
 targetCompatibility = 11
-tasks.withType(JavaCompile) {
-	options.encoding = 'UTF-8'
-}
-
-
 
 repositories {
         
-     maven { url "https://repo.maven.apache.org/maven2" }
+     mavenCentral()
 }
 dependencies {
-    providedCompile group: 'javax', name: 'javaee-web-api', version:'8.0'
+    implementation 'javax:javaee-api:8.0'
+    implementation 'org.postgresql:postgresql:42.2.8'
+    implementation 'org.hibernate:hibernate-core:5.4.6.Final'
+    implementation 'org.hibernate:hibernate-hikaricp:5.4.6.Final'
+    implementation 'com.zaxxer:HikariCP:3.4.1'
 }
