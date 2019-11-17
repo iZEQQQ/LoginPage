@@ -16,7 +16,7 @@ import java.util.stream.Stream;
 public class UserService {
 
 
-    private List<User> users = new ArrayList<>();
+    //private List<User> users = new ArrayList<>();
 
     @PersistenceContext
     private EntityManager em;
@@ -33,10 +33,16 @@ public class UserService {
     }
 
     public User findByLogin(String login){
-        return users.stream().filter(u -> u.getLogin().equals(login)).findFirst().orElse(null);
+        return em.find(User.class,login);
     }
 
     public boolean login(String login, String pass) {
-        return users.stream().anyMatch(u -> u.getLogin().equals(login) && u.getPass().equals(pass));
+        User user = findByLogin(login);
+        if(user!=null){
+            if (user.getPass().equals(pass)){
+                return true;
+            }
+        }
+        return false;
     }
 }
