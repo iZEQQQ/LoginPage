@@ -1,5 +1,6 @@
 package pl.edu.pjwstk.login;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import pl.edu.pjwstk.login.model.User;
 
 import javax.faces.application.FacesMessage;
