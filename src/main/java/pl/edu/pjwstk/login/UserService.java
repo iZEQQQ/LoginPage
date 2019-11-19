@@ -43,10 +43,8 @@ public class UserService {
         User user = findByLogin(login);
         if (user != null) {
 
-            if (bCryptPasswordEncoder
-                    .matches(pass, user.getPass())) {
-                return true;
-            }
+            return bCryptPasswordEncoder
+                    .matches(pass, user.getPass());
         }
         return false;
     }
