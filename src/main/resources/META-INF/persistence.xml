@@ -17,7 +17,7 @@
             <property name="hibernate.hikari.jdbcUrl" value="jdbc:postgresql://localhost:5432/loginpage"/>
             <property name="hibernate.hikari.username" value="loginpage"/>
             <property name="hibernate.hikari.password" value="loginpage"/>
-            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.hbm2ddl.auto" value="create" />
 
 
         </properties>
