@@ -32,8 +32,12 @@ public class Login implements Serializable {
 
     public String loginUser() {
         if (!(userService.login(user.getLoginLogin(), user.getLoginPass()))) {
+            //!!!!!!!!!!!!TRIED BOTH, BOTH DON'T WORK
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("wrong password or username"));
             return null;
+//            FacesContext.getCurrentInstance().getExternalContext().getFlash()
+//                    .put("error-message", "Incorrect username or password");
+//            return "/sign_done.xhtml?faces-redirect=true";
         }
         userContext.setUser(userService.findByLogin(user.getLoginLogin()));
         return "logged_welcome?faces-redirect=true";
