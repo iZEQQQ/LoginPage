@@ -6,3 +6,4 @@ databaseChangeLog:
         relativeToChangelogFile: true
         splitStatements: false
         path: 20191021_init.sql
+
