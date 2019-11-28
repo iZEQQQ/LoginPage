@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.login;
+package pl.edu.pjwstk.login.controllers;
 
 import pl.edu.pjwstk.login.model.User;
 

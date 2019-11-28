@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.login;
+package pl.edu.pjwstk.login.config;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;

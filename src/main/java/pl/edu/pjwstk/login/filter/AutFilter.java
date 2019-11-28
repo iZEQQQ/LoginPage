@@ -1,5 +1,7 @@
-package pl.edu.pjwstk.login;
+package pl.edu.pjwstk.login.filter;
 
+
+import pl.edu.pjwstk.login.controllers.UserContext;
 
 import javax.inject.Inject;
 import javax.servlet.*;

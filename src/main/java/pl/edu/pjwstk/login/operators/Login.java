@@ -1,6 +1,8 @@
-package pl.edu.pjwstk.login;
+package pl.edu.pjwstk.login.operators;
 
 
+import pl.edu.pjwstk.login.controllers.UserContext;
+import pl.edu.pjwstk.login.controllers.UserService;
 import pl.edu.pjwstk.login.model.User;
 
 import javax.faces.application.FacesMessage;

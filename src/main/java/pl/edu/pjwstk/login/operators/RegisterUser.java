@@ -1,18 +1,15 @@
-package pl.edu.pjwstk.login;
+package pl.edu.pjwstk.login.operators;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import pl.edu.pjwstk.login.controllers.UserService;
 import pl.edu.pjwstk.login.model.User;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
-import javax.faces.component.html.HtmlInputSecret;
 import javax.faces.context.FacesContext;
 import javax.faces.validator.ValidatorException;
 import javax.faces.view.ViewScoped;
-import javax.faces.view.facelets.FaceletContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.validation.ValidationException;
 import java.io.Serializable;
 
 @Named
