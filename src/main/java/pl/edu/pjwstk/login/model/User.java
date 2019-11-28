@@ -10,9 +10,10 @@ import java.util.Objects;
 @Entity
 @Table(name = "users")
 public class User implements Serializable {
-    private String pass;
+
     @Id
     private String login;
+    private String pass;
     private String surname;
     private String name;
     private LocalDate bday;

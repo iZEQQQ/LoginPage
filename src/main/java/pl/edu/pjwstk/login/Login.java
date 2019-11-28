@@ -18,7 +18,6 @@ public class Login implements Serializable {
     private User user = new User();
 
 
-
     @Inject
     private UserService userService;
 
