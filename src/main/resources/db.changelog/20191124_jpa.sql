@@ -15,3 +15,11 @@ CREATE TABLE parameters(
 CREATE TABLE photos(
 
 )
+
+CREATE TABLE branches(
+
+)
+
+CREATE TABLE categories(
+
+)
