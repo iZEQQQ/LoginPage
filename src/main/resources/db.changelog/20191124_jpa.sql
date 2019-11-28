@@ -36,6 +36,8 @@ CREATE TABLE branches
 CREATE TABLE categories
 (
     id BIGINT NOT NULL,
-    category VARCHAR NOT NULL
+    category VARCHAR NOT NULL,
+    auction_id BIGINT NOT NULL,
+    FOREIGN KEY (auction_id) REFERENCES auction (id)
 
 );
