@@ -4,22 +4,22 @@ CREATE TABLE auction
     name VARCHAR NOT NULL,
 
     PRIMARY KEY (id)
-)
+);
 
 
 CREATE TABLE parameters(
 
-)
+);
 
 
 CREATE TABLE photos(
 
-)
+);
 
 CREATE TABLE branches(
 
-)
+);
 
 CREATE TABLE categories(
 
-)
+);
