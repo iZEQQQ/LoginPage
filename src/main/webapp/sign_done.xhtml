@@ -18,8 +18,6 @@
     <h:outputStylesheet library="css" name="styles.css"/>
     <h:form>
         <h:panelGrid columns="3" >
-<!--            <h:outputLabel rendered="#{flash.containsKey('error-message')}"-->
-<!--                           styleClass="alert alert-danger" value="#{flash['error-message']}"/>-->
             <h:outputLabel for="login" value="Login: " />
             <h:inputText id="login" value="#{login.user.loginLogin}"/>
             <h:message for="login"/>
