@@ -27,14 +27,15 @@ CREATE TABLE photos
 
 CREATE TABLE branches
 (
-
+    id BIGINT NOT NULL,
+    branch VARCHAR NOT NULL,
+    category_id BIGINT NOT NULL,
+    FOREIGN KEY (category_id) REFERENCES categories (id)
 );
 
 CREATE TABLE categories
 (
     id BIGINT NOT NULL,
-    category VARCHAR NOT NULL,
-    auction_id BIGINT NOT NULL,
-    FOREIGN KEY (auction_id) REFERENCES auction (id)
+    category VARCHAR NOT NULL
 
 );
