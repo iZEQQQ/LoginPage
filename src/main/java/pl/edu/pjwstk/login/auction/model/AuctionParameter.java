@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.login.model;
+package pl.edu.pjwstk.login.auction.model;
 
 import javax.persistence.*;
 import java.io.Serializable;

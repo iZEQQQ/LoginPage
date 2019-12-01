@@ -1,7 +1,11 @@
-package pl.edu.pjwstk.login.model;
+package pl.edu.pjwstk.login.auction.model;
+
+import pl.edu.pjwstk.login.model.User;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Auction implements Serializable {
@@ -11,6 +15,12 @@ public class Auction implements Serializable {
     private String title;
     private String description;
     private Double price;
+
+    @OneToMany(mappedBy = "auction",fetch = FetchType.EAGER)
+    private List<AuctionParameter> auctionParameterList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "auction",fetch = FetchType.EAGER)
+    private List<Photo> photoList = new ArrayList<>();
 
     @ManyToOne
     private User user;
