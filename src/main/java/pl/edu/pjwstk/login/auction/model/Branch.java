@@ -11,7 +11,7 @@ public class Branch implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String namne;
+    private String name;
 
     public Integer getId() {
         return id;
@@ -21,11 +21,11 @@ public class Branch implements Serializable {
         this.id = id;
     }
 
-    public String getNamne() {
-        return namne;
+    public String getName() {
+        return name;
     }
 
-    public void setNamne(String namne) {
-        this.namne = namne;
+    public void setName(String namne) {
+        this.name = namne;
     }
 }

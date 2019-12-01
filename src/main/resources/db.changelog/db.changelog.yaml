@@ -19,4 +19,4 @@ databaseChangeLog:
       sqlFile:
         relativeToChangelogFile: true
         splitStatements: false
-        path: 20191124_jpa.sql
+        path: 20191201_insert.sql

@@ -1,5 +1,7 @@
 package pl.edu.pjwstk.login.auction.model;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import pl.edu.pjwstk.login.model.User;
 
 import javax.persistence.*;
@@ -16,10 +18,12 @@ public class Auction implements Serializable {
     private String description;
     private Double price;
 
+    @Fetch(FetchMode.SUBSELECT)
     @OneToMany(mappedBy = "auction",fetch = FetchType.EAGER)
     private List<AuctionParameter> auctionParameterList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "auction",fetch = FetchType.EAGER)
+    @Fetch(FetchMode.SUBSELECT)
+    @OneToMany(mappedBy = "auction")
     private List<Photo> photoList = new ArrayList<>();
 
     @ManyToOne
