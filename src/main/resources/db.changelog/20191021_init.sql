@@ -2,6 +2,7 @@ CREATE SEQUENCE hibernate_sequence;
 
 CREATE TABLE users
 (
+
     login  VARCHAR NOT NULL,
     pass  VARCHAR NOT NULL,
     name VARCHAR   NOT NULL,

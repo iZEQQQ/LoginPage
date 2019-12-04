@@ -15,7 +15,7 @@ CREATE TABLE category
 (
     id        SERIAL PRIMARY KEY,
     name      VARCHAR NOT NULL,
-    branch_id int     not null,
+    branch_id BIGINT  not null,
     FOREIGN KEY (branch_id) REFERENCES branch (id)
 
 );
@@ -26,8 +26,8 @@ CREATE TABLE auction
     title       VARCHAR       NOT NULL,
     description VARCHAR       NOT NULL,
     price       NUMERIC(9, 2) NOT NULL,
-    category_id int           not null,
-    user_id     int           not null,
+    category_id BIGINT        not null,
+    user_id     VARCHAR       not null,
     FOREIGN KEY (category_id) REFERENCES category (id),
     FOREIGN KEY (user_id) REFERENCES users (login)
 );
