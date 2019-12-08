@@ -23,4 +23,10 @@ public class BranchList implements Serializable {
         }
         return branchList;
     }
+
+    public String delete(Branch branch) {
+    service.remove(branch);
+    branchList.remove(branch);
+    return null;
+    }
 }

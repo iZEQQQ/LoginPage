@@ -6,13 +6,19 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
-    <h:dataTable var="brach" value="#{branchList.branchList}">
-        <h:column >
-            #{brach.id}
+    <h:dataTable var="branch" value="#{branchList.branchList}">
+        <h:column>
+            #{branch.id}
         </h:column>
         <h:column>
-            #{brach.name}
+            #{branch.name}
+        </h:column>
+        <h:column>
+            <h:form>
+                <h:commandButton value="Delete branch" action="#{branchList.delete(branch)}"/>
+            </h:form>
         </h:column>
     </h:dataTable>
+    <h:button value="Add" outcome="/auction/branch_edit.xhtml"/>
 </f:view>
 </html>

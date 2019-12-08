@@ -1,1 +1,1 @@
-    -- insert into branch (name) VALUES ("meat"),("vegies");
+    insert into branch (name) VALUES ('meat'),('vegies');
