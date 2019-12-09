@@ -26,4 +26,5 @@ public class BranchEdit implements Serializable {
 
         return "/auction/branch_list?faces-redirect=true";
     }
+
 }
