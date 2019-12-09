@@ -6,16 +6,22 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
-    <h:form>
-        <h:panelGrid columns="4">
-            <h:outputLabel for="name">
-                Name:
-            </h:outputLabel>
-            <h:inputText id="name" value="#{categoryEdit.category.name}"/>
-            <h:message for="name"/>
-        </h:panelGrid>
-        <h:commandButton value="Save" action="#{categoryEdit.saveCategory}"/>
-        <h:button outcome="/auction/category_list.xhtml" value="Cancel"/>
-    </h:form>
+    <h:dataTable var="category" value="#{categoryList.categoryList}">
+        <h:column>
+            #{category.id}
+        </h:column>
+        <h:column>
+            #{category.name}
+        </h:column>
+        <h:column>
+            #{category.branch}
+        </h:column>
+        <h:column>
+            <h:form>
+                <h:commandButton value="Delete branch" action="#{categoryList.delete(category)}"/>
+            </h:form>
+        </h:column>
+    </h:dataTable>
+    <h:button value="Add" outcome="/auction/category_edit.xhtml"/>
 </f:view>
 </html>
