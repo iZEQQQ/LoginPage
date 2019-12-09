@@ -15,7 +15,7 @@ public class CategoryService {
     @PersistenceContext
     private EntityManager em;
 
-    public List<Category> findCategory() {
+    public List<Category> findAllCategories() {
         return em.createQuery("SELECT c FROM Category c", Category.class).getResultList();
     }
 
