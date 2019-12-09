@@ -5,33 +5,33 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-<f:view >
-<h:head>
-    <h:outputStylesheet library="css" name="styles.css"/>
-    <style type="text/css">
-        body{
-            background-image: url(./resources/css/background.png);
-        }
-    </style>
-</h:head>
-<h:body>
-    <h1>User Login form</h1>
-    <h:form>
-        <h:panelGrid columns="3" >
-            <h:outputLabel for="login" value="Login: " />
-            <h:inputText id="login" value="#{login.user.loginLogin}"/>
-            <h:message for="login"/>
+<f:view>
+    <h:head>
+        <h:outputStylesheet library="css" name="styles.css"/>
+        <style type="text/css">
+            body {
+                background-image: url(./resources/css/background.png);
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <h1>User Login form</h1>
+        <h:form>
+            <h:panelGrid columns="3">
+                <h:outputLabel for="login" value="Login: "/>
+                <h:inputText id="login" value="#{login.user.loginLogin}"/>
+                <h:message for="login"/>
 
-            <h:outputLabel for="pass" value="Password: "/>
-            <h:inputSecret id="pass" value="#{login.user.loginPass}"/>
-            <h:message for="pass"/>
+                <h:outputLabel for="pass" value="Password: "/>
+                <h:inputSecret id="pass" value="#{login.user.loginPass}"/>
+                <h:message for="pass"/>
 
-            <h:commandButton action="#{login.loginUser}" value="Login in"/>
-            <h:commandButton action="sign_up?faces-redirect=true" value="Register"/>
+                <h:commandButton action="#{login.loginUser}" value="Login in"/>
+                <h:commandButton action="sign_up?faces-redirect=true" value="Register"/>
 
-            <h:messages/>
-        </h:panelGrid>
-    </h:form>
-</h:body>
+                <h:messages/>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
 </f:view>
 </html>

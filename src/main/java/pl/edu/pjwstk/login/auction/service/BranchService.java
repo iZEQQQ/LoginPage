@@ -22,6 +22,7 @@ public class BranchService {
     public void remove(Branch branch) {
         em.remove(em.merge(branch));
     }
+
     @Transactional
     public void save(Branch branch) {
         em.persist(branch);

@@ -8,7 +8,7 @@
 <h:head>
     <h:outputStylesheet library="css" name="styles.css"/>
     <style type="text/css">
-        body{
+        body {
             background-image: url(./resources/css/background.png);
         }
     </style>
@@ -17,8 +17,11 @@
 
 <f:view>
     <h:outputLabel value="Hello, #{userContext.user.name} #{userContext.user.surname}"/>
+    <!--   TODO dodac moje aukcje z miniatura zdjecia aukcji jesli jest wiecej-->
+    <!--TODO jak jedna to odrazu wyswietla sie ona -->
     My Auctions:
     <h:button value="Go" outcome="/auction/my_auctions_list.xhtml"/>
+    <!--    TODO dodac mozliwosc przeglodania aukcji z mozliwoscia wejscia w nie -->
     Auctions:
     <h:button value="Go" outcome="/auction/auction_list.xhtml"/>
     Branches:

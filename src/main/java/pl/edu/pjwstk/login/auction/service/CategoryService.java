@@ -20,12 +20,12 @@ public class CategoryService {
     }
 
     @Transactional
-    public void addCategory(Category category){
+    public void addCategory(Category category) {
         em.persist(category);
     }
 
     @Transactional
-    public void deleteCategory(Category category){
+    public void deleteCategory(Category category) {
         em.remove(em.merge(category));
     }
 

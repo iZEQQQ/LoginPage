@@ -16,12 +16,13 @@ public class BranchEdit implements Serializable {
     private BranchService service;
 
     public Branch getBranch() {
-        if(branch==null){
+        if (branch == null) {
             branch = new Branch();
         }
         return branch;
     }
-    public String save(){
+
+    public String save() {
         service.save(branch);
 
         return "/auction/branch_list?faces-redirect=true";

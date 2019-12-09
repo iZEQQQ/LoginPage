@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+//TODO poprawic filter by dzialal i nie blokowal css
 //@WebFilter("*")
 public class AutFilter implements Filter {
     @Inject
@@ -17,11 +18,10 @@ public class AutFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        if (userContext.isLogged() || ((HttpServletRequest)request).getServletPath().equals("/sign_done.xhtml")|| ((HttpServletRequest)request).getServletPath().equals("/sign_up.xhtml")) {
+        if (userContext.isLogged() || ((HttpServletRequest) request).getServletPath().equals("/sign_done.xhtml") || ((HttpServletRequest) request).getServletPath().equals("/sign_up.xhtml")) {
             chain.doFilter(request, response);
-        }
-        else{
-            ((HttpServletResponse)response).sendRedirect("sign_done.xhtml");
+        } else {
+            ((HttpServletResponse) response).sendRedirect("sign_done.xhtml");
         }
     }
 }

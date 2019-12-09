@@ -24,7 +24,7 @@ public class CategoryEdit implements Serializable {
         return category;
     }
 
-    public String saveCategory(){
+    public String saveCategory() {
         service.addCategory(category);
         return "/auction/category_list?faces-redirect=true";
     }

@@ -5,6 +5,7 @@ import pl.edu.pjwstk.login.model.User;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;
+
 @Named
 @SessionScoped
 public class UserContext implements Serializable {
@@ -18,8 +19,8 @@ public class UserContext implements Serializable {
         return user;
     }
 
-    public boolean isLogged(){
-        return  user != null;
+    public boolean isLogged() {
+        return user != null;
     }
 
 
