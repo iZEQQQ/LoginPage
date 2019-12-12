@@ -13,6 +13,11 @@
             </h:outputLabel>
             <h:inputText id="name" value="#{categoryEdit.category.name}"/>
             <h:message for="name"/>
+
+            <h:selectOneMenu value="#{branchEdit.branch.id}">
+                <f:selectItems itemLabel="#{branchEdit.branch.name}" itemValue="#{branchEdit.branch.id}"/>
+            </h:selectOneMenu>
+
         </h:panelGrid>
         <h:commandButton value="Save" action="#{categoryEdit.saveCategory}"/>
         <h:button outcome="/auction/category_list.xhtml" value="Cancel"/>
