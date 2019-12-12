@@ -11,9 +11,9 @@ import java.io.Serializable;
 @ViewScoped
 @Named
 public class BranchEdit implements Serializable {
-    private Branch branch;
     @Inject
     private BranchService service;
+    private Branch branch;
 
     public Branch getBranch() {
         if (branch == null) {
