@@ -23,7 +23,7 @@ public class PhotoEdit implements Serializable {
         }
         return photo;
     }
-    //TODO poprawisave photo
+    //TODO poprawic save photo
     public String savePhoto(){
         service.addPhoto(photo);
         return null;
