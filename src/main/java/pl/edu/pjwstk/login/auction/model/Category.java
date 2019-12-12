@@ -2,6 +2,7 @@ package pl.edu.pjwstk.login.auction.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
 public class Category implements Serializable {
@@ -12,6 +13,21 @@ public class Category implements Serializable {
 
     @ManyToOne
     private Branch branch;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Category category = (Category) o;
+        return Objects.equals(id, category.id) &&
+                Objects.equals(name, category.name) &&
+                Objects.equals(branch, category.branch);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, branch);
+    }
 
     public Integer getId() {
         return id;

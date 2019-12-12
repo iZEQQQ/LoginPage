@@ -23,6 +23,11 @@
             #{branch.name}
         </h:column>
         <h:column>
+            <h:button value="edit" outcome="/auction/branch_edit.xhtml">
+                <f:param name="id" value="#{branch.id}"/>
+            </h:button>
+        </h:column>
+        <h:column>
             <h:form>
                 <h:commandButton value="Delete branch" action="#{branchList.delete(branch)}"/>
             </h:form>

@@ -5,27 +5,31 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-
-<h:head>
-    <h:outputStylesheet library="css" name="styles.css"/>
-    <style type="text/css">
-        body{
-            background-image: url(../resources/css/background.png);
-        }
-    </style>
-</h:head>
 <f:view>
-    <h:form>
-        <h:panelGrid columns="3">
-            <h:outputLabel for="name">
-                Name:
-            </h:outputLabel>
-            <h:inputText id="name" value="#{branchEdit.branch.name}"/>
-            <h:message for="name"/>
-        </h:panelGrid>
-        <h:commandButton value="Save" action="#{branchEdit.save}"/>
-        <h:button outcome="/auction/branch_list.xhtml" value="Cancel"/>
-    </h:form>
+    <f:metadata>
+        <f:viewParam name="id" value="#{branchEdit.id}"/>
+    </f:metadata>
+    <h:head>
+        <h:outputStylesheet library="css" name="styles.css"/>
+        <style type="text/css">
+            body {
+                background-image: url(../resources/css/background.png);
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid columns="3">
+                <h:outputLabel for="name">
+                    Name:
+                </h:outputLabel>
+                <h:inputText id="name" value="#{branchEdit.branch.name}"/>
+                <h:message for="name"/>
+            </h:panelGrid>
+            <h:commandButton value="Save" action="#{branchEdit.save}"/>
+            <h:button outcome="/auction/branch_list.xhtml" value="Cancel"/>
+        </h:form>
+    </h:body>
 </f:view>
 </html>
 

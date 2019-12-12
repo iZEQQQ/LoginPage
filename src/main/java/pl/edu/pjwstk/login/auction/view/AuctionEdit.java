@@ -15,6 +15,10 @@ public class AuctionEdit implements Serializable {
     @Inject
     private AuctionService service;
     private Auction auction;
+    @Inject
+    private PhotoList photoList;
+
+
 
     public Auction getAuction(){
         if(auction == null){

@@ -8,6 +8,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class Auction implements Serializable {
@@ -28,6 +29,26 @@ public class Auction implements Serializable {
 
     @ManyToOne
     private User user;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Auction auction = (Auction) o;
+        return Objects.equals(id, auction.id) &&
+                Objects.equals(title, auction.title) &&
+                Objects.equals(description, auction.description) &&
+                Objects.equals(price, auction.price) &&
+                Objects.equals(auctionParameterList, auction.auctionParameterList) &&
+                Objects.equals(photoList, auction.photoList) &&
+                Objects.equals(user, auction.user) &&
+                Objects.equals(category, auction.category);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, description, price, auctionParameterList, photoList, user, category);
+    }
 
     @ManyToOne
     private Category category;

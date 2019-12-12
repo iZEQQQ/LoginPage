@@ -14,10 +14,24 @@ public class BranchEdit implements Serializable {
     @Inject
     private BranchService service;
     private Branch branch;
+    private Integer id;
+
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Branch getBranch() {
         if (branch == null) {
-            branch = new Branch();
+            if (id == null) {
+                branch = new Branch();
+            } else {
+                branch = service.find(id);
+            }
         }
         return branch;
     }

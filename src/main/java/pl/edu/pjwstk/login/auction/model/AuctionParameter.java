@@ -2,6 +2,7 @@ package pl.edu.pjwstk.login.auction.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
 @Table(name = "auction_parameter")
@@ -16,6 +17,23 @@ public class AuctionParameter implements Serializable {
 
     @ManyToOne
     private Auction auction;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AuctionParameter that = (AuctionParameter) o;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(numberValue, that.numberValue) &&
+                Objects.equals(textValue, that.textValue) &&
+                Objects.equals(auction, that.auction) &&
+                Objects.equals(parameter, that.parameter);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, numberValue, textValue, auction, parameter);
+    }
 
     @ManyToOne
     private Parameter parameter;

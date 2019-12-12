@@ -4,6 +4,6 @@ body {
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
-
+    background-image: url(/resources/css/background.png);
 }
 

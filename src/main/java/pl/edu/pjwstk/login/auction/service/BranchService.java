@@ -25,6 +25,14 @@ public class BranchService {
 
     @Transactional
     public void save(Branch branch) {
-        em.persist(branch);
+        if (branch.getId() == null) {
+            em.persist(branch);
+        } else {
+            em.merge(branch);
+        }
+    }
+
+    public Branch find(int id) {
+        return em.find(Branch.class, id);
     }
 }

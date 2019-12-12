@@ -23,5 +23,8 @@ public class AutFilter implements Filter {
         } else {
             ((HttpServletResponse) response).sendRedirect("sign_done.xhtml");
         }
+
+
+
     }
 }

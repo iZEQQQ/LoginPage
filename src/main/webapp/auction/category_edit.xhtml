@@ -9,23 +9,26 @@
     <h:head>
         <h:outputStylesheet library="css" name="styles.css"/>
         <style type="text/css">
-            body{
+            body {
                 background-image: url(../resources/css/background.png);
             }
         </style>
     </h:head>
 
     <h:form>
-        <h:panelGrid columns="4">
+        <h:panelGrid columns="3">
             <h:outputLabel for="name">
                 Name:
             </h:outputLabel>
             <h:inputText id="name" value="#{categoryEdit.category.name}"/>
             <h:message for="name"/>
 
-            <h:selectOneMenu value="#{branchEdit.branch.id}">
-                <f:selectItems itemLabel="#{branchEdit.branch.name}" itemValue="#{branchEdit.branch.id}"/>
+            <h:outputLabel>branch</h:outputLabel>
+            <h:selectOneMenu value="#{categoryEdit.category.branch}" id="category">
+                <f:selectItems value="#{categoryEdit.branchList}" var="branch" itemLabel="#{branch.name}"
+                               itemValue="#{branch}"/>
             </h:selectOneMenu>
+            <h:message for="category"/>
 
         </h:panelGrid>
         <h:commandButton value="Save" action="#{categoryEdit.saveCategory}"/>
