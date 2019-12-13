@@ -15,11 +15,37 @@
         </style>
     </h:head>
     <h:body>
-
-
-
-
-
+        <h:dataTable var="auction" value="#{auctionList.auctionList}">
+            <h:column>
+                #{auction.id}
+            </h:column>
+            <h:column>
+                #{auction.title}
+            </h:column>
+            <h:column>
+                #{auction.description}
+            </h:column>
+            <h:column>
+                #{auction.price}
+            </h:column>
+            <h:column>
+                #{auction.category.name}
+            </h:column>
+            <h:column>
+                #{auction.user.name}
+            </h:column>
+            <h:column>
+                <h:button value="edit" outcome="/auction/auction_edit.xhtml">
+                    <f:param name="id" value="#{auction.id}"/>
+                </h:button>
+            </h:column>
+            <h:column>
+                <h:form>
+                    <h:commandButton value="Delete auction" action="#{auctionList.delete(auction)}"
+                </h:form>
+            </h:column>
+        </h:dataTable>
+        <h:button value="Add" outcome="/auction/auction_edit.xhtml"/>
     </h:body>
 </f:view>
 </html>
