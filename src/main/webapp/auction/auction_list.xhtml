@@ -32,16 +32,13 @@
                 #{auction.category.name}
             </h:column>
             <h:column>
-                #{auction.user.name}
-            </h:column>
-            <h:column>
                 <h:button value="edit" outcome="/auction/auction_edit.xhtml">
                     <f:param name="id" value="#{auction.id}"/>
                 </h:button>
             </h:column>
             <h:column>
                 <h:form>
-                    <h:commandButton value="Delete auction" action="#{auctionList.delete(auction)}"
+                    <h:commandButton value="Delete auction" action="#{auctionList.delete(auction)}"/>
                 </h:form>
             </h:column>
         </h:dataTable>
