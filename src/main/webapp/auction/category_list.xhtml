@@ -14,7 +14,7 @@
             }
         </style>
     </h:head>
-
+<h:body>
     <h:dataTable var="category" value="#{categoryList.categoryList}">
         <h:column>
             #{category.id}
@@ -32,5 +32,6 @@
         </h:column>
     </h:dataTable>
     <h:button value="Add" outcome="/auction/category_edit.xhtml"/>
+</h:body>
 </f:view>
 </html>

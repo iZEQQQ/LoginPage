@@ -6,6 +6,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
+<f:view>
 <h:head>
     <h:outputStylesheet library="css" name="styles.css"/>
     <style type="text/css">
@@ -14,7 +15,7 @@
         }
     </style>
 </h:head>
-<f:view>
+<h:body>
     <h:dataTable var="branch" value="#{branchList.branchList}">
         <h:column>
             #{branch.id}
@@ -34,5 +35,6 @@
         </h:column>
     </h:dataTable>
     <h:button value="Add" outcome="/auction/branch_edit.xhtml"/>
+</h:body>
 </f:view>
 </html>

@@ -16,12 +16,14 @@ public class ParamEdit implements Serializable {
     private ParamService service;
     private Parameter parameter;
 
+
     public Parameter getParameter() {
         if (parameter == null) {
             parameter = new Parameter();
         }
         return parameter;
     }
+
 
     // TODO poprawisave parametru
     public String save() {
