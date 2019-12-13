@@ -23,7 +23,7 @@
             <h:inputText id="name" value="#{categoryEdit.category.name}"/>
             <h:message for="name"/>
 
-            <h:outputLabel>branch</h:outputLabel>
+            <h:outputLabel>Branch:</h:outputLabel>
             <h:selectOneMenu value="#{categoryEdit.category.branch}" id="category">
                 <f:selectItems value="#{categoryEdit.branchList}" var="branch" itemLabel="#{branch.name}"
                                itemValue="#{branch}"/>

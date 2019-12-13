@@ -6,6 +6,45 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
-    <h:outputLabel value="Hello, world"/>
+    <h:head>
+        <h:outputStylesheet library="css" name="styles.css"/>
+        <style type="text/css">
+            body {
+                background-image: url(../resources/css/background.png);
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid columns="6">
+                <h:outputLabel for="title">
+                    Title:
+                </h:outputLabel>
+                <h:inputText id="title" value="#{auctionEdit.auction.title}"/>
+                <h:message for="title"/>
+                <h:outputLabel for="description">
+                    Description:
+                </h:outputLabel>
+                <h:inputText id="description" value="#{auctionEdit.auction.description}"/>
+                <h:message for="description"/>
+                <h:outputLabel for="price">
+                    Price:
+                </h:outputLabel>
+                <h:inputText id="price" value="#{auctionEdit.auction.price}"/>
+                <h:message for="price"/>
+
+                <h:outputLabel>Category:</h:outputLabel>
+                <h:selectOneMenu value="#{auctionEdit.auction.category}" id="auction">
+                    <f:selectItems value="#{auctionEdit.categoryList}" var="category" itemLabel="#{category.name}"
+                                   itemValue="#{category}"/>
+                </h:selectOneMenu>
+                <h:message for="auction"/>
+
+            </h:panelGrid>
+            <h:commandButton value="Save" action="#{auctionEdit.save}"/>
+            <h:button outcome="/auction/auction_list.xhtml" value="Cancel"/>
+        </h:form>
+    </h:body>
+
 </f:view>
 </html>

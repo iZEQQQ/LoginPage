@@ -29,5 +29,8 @@ public class AuctionService {
         em.persist(auction);
     }
 
+    public Auction find(int id){
+        return em.find(Auction.class,id);
+    }
 
 }

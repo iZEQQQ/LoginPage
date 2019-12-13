@@ -1,7 +1,7 @@
 package pl.edu.pjwstk.login.auction.view.converter;
 
-import pl.edu.pjwstk.login.auction.model.Branch;
-import pl.edu.pjwstk.login.auction.service.BranchService;
+import pl.edu.pjwstk.login.auction.model.Auction;
+import pl.edu.pjwstk.login.auction.service.AuctionService;
 
 import javax.enterprise.context.Dependent;
 import javax.faces.component.UIComponent;
@@ -11,19 +11,18 @@ import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
 
 @Dependent
-@FacesConverter(forClass = Branch.class, managed = true)
-public class BranchConverter implements Converter<Branch> {
+@FacesConverter(forClass = Auction.class, managed = true)
+public class AuctionConverter implements Converter<Auction> {
     @Inject
-    private BranchService service;
-
+    private AuctionService service;
 
     @Override
-    public Branch getAsObject(FacesContext context, UIComponent component, String value) {
+    public Auction getAsObject(FacesContext context, UIComponent component, String value) {
         return service.find(Integer.parseInt(value));
     }
 
     @Override
-    public String getAsString(FacesContext context, UIComponent component, Branch value) {
+    public String getAsString(FacesContext context, UIComponent component, Auction value) {
         return value.getId().toString();
     }
 }
