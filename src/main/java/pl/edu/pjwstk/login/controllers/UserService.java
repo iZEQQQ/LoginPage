@@ -2,8 +2,10 @@ package pl.edu.pjwstk.login.controllers;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import pl.edu.pjwstk.login.model.User;
+import pl.edu.pjwstk.login.operators.Login;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -41,4 +43,5 @@ public class UserService {
         }
         return false;
     }
+
 }

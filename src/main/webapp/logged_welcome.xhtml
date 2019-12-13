@@ -29,7 +29,9 @@
     <h:button value="Go" outcome="/auction/branch_list.xhtml"/>
     Categories:
     <h:button value="Go" outcome="/auction/category_list.xhtml"/>
-
+    <h:form>
+        <h:commandButton value="Logout" action="#{userContext.logout}"/>
+    </h:form>
 
 </f:view>
 </html>

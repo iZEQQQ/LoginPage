@@ -1,8 +1,10 @@
 package pl.edu.pjwstk.login.controllers;
 
 import pl.edu.pjwstk.login.model.User;
+import pl.edu.pjwstk.login.operators.Login;
 
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
 
@@ -23,5 +25,13 @@ public class UserContext implements Serializable {
         return user != null;
     }
 
+    @Inject
+    private Login loginc;
+
+    public String logout(){
+
+        loginc.logout();
+        return "logged_welcome.xhtml?faces-redirect=true";
+    }
 
 }
