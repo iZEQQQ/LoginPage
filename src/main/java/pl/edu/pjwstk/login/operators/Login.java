@@ -10,8 +10,6 @@ import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.io.Serializable;
 
 
@@ -20,8 +18,6 @@ import java.io.Serializable;
 public class Login implements Serializable {
 
     private User user = new User();
-    @Inject
-    private HttpServletRequest request;
 
     @Inject
     private UserService userService;
@@ -45,10 +41,5 @@ public class Login implements Serializable {
 
     }
 
-    public void logout() {
-        HttpSession session = request.getSession(false);
-        if(session!= null){
-            session.invalidate();
-        }
-    }
+
 }

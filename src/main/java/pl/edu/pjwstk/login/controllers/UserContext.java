@@ -25,13 +25,5 @@ public class UserContext implements Serializable {
         return user != null;
     }
 
-    @Inject
-    private Login loginc;
-
-    public String logout(){
-
-        loginc.logout();
-        return "logged_welcome.xhtml?faces-redirect=true";
-    }
 
 }
