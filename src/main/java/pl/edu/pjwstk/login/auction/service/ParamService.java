@@ -21,7 +21,12 @@ public class ParamService {
 
     @Transactional
     public void addParam(Parameter parameter){
-        em.persist(parameter);
+       if(parameter.getId()==null){
+           em.persist(parameter);
+       }else{
+           em.merge(parameter);
+       }
+
     }
 
     @Transactional

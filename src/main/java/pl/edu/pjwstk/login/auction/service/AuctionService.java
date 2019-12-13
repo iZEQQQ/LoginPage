@@ -15,22 +15,26 @@ public class AuctionService {
     @PersistenceContext
     private EntityManager em;
 
-    public List<Auction> findAllAuctions(){
+    public List<Auction> findAllAuctions() {
         return em.createQuery("SELECT a FROM Auction a", Auction.class).getResultList();
     }
 
     @Transactional
-    public void remove(Auction auction){
+    public void remove(Auction auction) {
         em.remove(em.merge(auction));
     }
 
     @Transactional
-    public void save(Auction auction){
-        em.persist(auction);
+    public void save(Auction auction) {
+        if (auction.getId() == null) {
+            em.persist(auction);
+        } else {
+            em.merge(auction);
+        }
     }
 
-    public Auction find(int id){
-        return em.find(Auction.class,id);
+    public Auction find(int id) {
+        return em.find(Auction.class, id);
     }
 
 }

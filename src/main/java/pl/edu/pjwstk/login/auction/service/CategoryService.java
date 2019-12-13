@@ -21,7 +21,11 @@ public class CategoryService {
 
     @Transactional
     public void addCategory(Category category) {
-        em.persist(category);
+        if (category.getId() == null) {
+            em.persist(category);
+        } else {
+            em.merge(category);
+        }
     }
 
     @Transactional
