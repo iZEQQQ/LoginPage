@@ -27,7 +27,7 @@ public class Auction implements Serializable {
     private Double price;
 
     @Fetch(FetchMode.SUBSELECT)
-    @OneToMany(mappedBy = "auction",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "auction",fetch = FetchType.EAGER, orphanRemoval = true, cascade ={CascadeType.PERSIST, CascadeType.REMOVE})
     private List<AuctionParameter> auctionParameterList = new ArrayList<>();
 
     @Fetch(FetchMode.SUBSELECT)
