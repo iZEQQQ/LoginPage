@@ -32,5 +32,8 @@ public class CategoryService {
     public void deleteCategory(Category category) {
         em.remove(em.merge(category));
     }
+    public Category find(int id){
+        return em.find(Category.class,id);
+    }
 
 }

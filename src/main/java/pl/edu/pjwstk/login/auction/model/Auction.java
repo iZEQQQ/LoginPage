@@ -5,6 +5,9 @@ import org.hibernate.annotations.FetchMode;
 import pl.edu.pjwstk.login.model.User;
 
 import javax.persistence.*;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,8 +18,12 @@ public class Auction implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @NotBlank
     private String title;
+    @NotBlank
     private String description;
+    @NotNull
+    @DecimalMin("0")
     private Double price;
 
     @Fetch(FetchMode.SUBSELECT)
@@ -28,6 +35,7 @@ public class Auction implements Serializable {
     private List<Photo> photoList = new ArrayList<>();
 
     @ManyToOne
+    @JoinColumn(name ="owner_id")
     private User user;
 
     @Override
@@ -101,6 +109,19 @@ public class Auction implements Serializable {
         this.category = category;
     }
 
+    public List<AuctionParameter> getAuctionParameterList() {
+        return auctionParameterList;
+    }
 
+    public void setAuctionParameterList(List<AuctionParameter> auctionParameterList) {
+        this.auctionParameterList = auctionParameterList;
+    }
 
+    public List<Photo> getPhotoList() {
+        return photoList;
+    }
+
+    public void setPhotoList(List<Photo> photoList) {
+        this.photoList = photoList;
+    }
 }

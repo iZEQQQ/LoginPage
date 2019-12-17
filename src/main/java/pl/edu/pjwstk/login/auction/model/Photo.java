@@ -14,6 +14,14 @@ public class Photo implements Serializable {
     @ManyToOne
     private Auction auction;
 
+    public Photo() {
+    }
+
+    public Photo(String link, Auction auction) {
+        this.link = link;
+        this.auction = auction;
+    }
+
     public Integer getId() {
         return id;
     }

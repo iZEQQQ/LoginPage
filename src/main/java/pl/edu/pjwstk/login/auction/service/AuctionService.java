@@ -2,6 +2,7 @@ package pl.edu.pjwstk.login.auction.service;
 
 
 import pl.edu.pjwstk.login.auction.model.Auction;
+import pl.edu.pjwstk.login.model.User;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
@@ -37,4 +38,8 @@ public class AuctionService {
         return em.find(Auction.class, id);
     }
 
+    public List<Auction> findAllAuctions(User user) {
+        return em.createQuery("SELECT a FROM Auction  a WHERE a.user = :user", Auction.class)
+                .setParameter("user", user).getResultList();
+    }
 }
