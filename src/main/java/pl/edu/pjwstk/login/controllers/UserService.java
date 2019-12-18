@@ -5,6 +5,8 @@ import pl.edu.pjwstk.login.model.User;
 import pl.edu.pjwstk.login.operators.Login;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -26,6 +28,7 @@ public class UserService {
             em.persist(user);
             return true;
         }
+        FacesContext.getCurrentInstance().addMessage(null,new FacesMessage("user with that login already exists"));
         return false;
     }
 
