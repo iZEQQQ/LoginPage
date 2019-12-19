@@ -23,6 +23,15 @@ public class CategoryEdit implements Serializable {
     private CategoryService service;
     private Category category;
     private List<Branch> branchList;
+    private Integer id;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public List<Branch> getBranchList() {
         if (branchList == null) {
@@ -33,7 +42,11 @@ public class CategoryEdit implements Serializable {
 
     public Category getCategory() {
         if (category == null) {
-            category = new Category();
+            if (id == null) {
+                category = new Category();
+            } else {
+                category = service.find(id);
+            }
         }
         return category;
     }

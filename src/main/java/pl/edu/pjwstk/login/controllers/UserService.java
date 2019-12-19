@@ -28,7 +28,6 @@ public class UserService {
             em.persist(user);
             return true;
         }
-        FacesContext.getCurrentInstance().addMessage(null,new FacesMessage("user with that login already exists"));
         return false;
     }
 

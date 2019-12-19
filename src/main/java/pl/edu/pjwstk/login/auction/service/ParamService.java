@@ -35,5 +35,7 @@ public class ParamService {
     }
 
 
-
+    public Parameter find(Integer id) {
+        return em.find(Parameter.class,id);
+    }
 }

@@ -15,11 +15,23 @@ public class ParamEdit implements Serializable {
     @Inject
     private ParamService service;
     private Parameter parameter;
+    private Integer id;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Parameter getParameter() {
         if (parameter == null) {
-            parameter = new Parameter();
+            if (id == null) {
+                parameter = new Parameter();
+            } else {
+                parameter = service.find(id);
+            }
         }
         return parameter;
     }

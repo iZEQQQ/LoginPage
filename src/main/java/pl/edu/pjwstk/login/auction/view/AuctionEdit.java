@@ -30,6 +30,15 @@ public class AuctionEdit implements Serializable {
     private Auction auction;
     private List<Category> categoryList;
     private String newImageUrl;
+    private Integer id;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getNewImageUrl() {
         return newImageUrl;
@@ -48,7 +57,11 @@ public class AuctionEdit implements Serializable {
 
     public Auction getAuction() {
         if (auction == null) {
-            auction = new Auction();
+            if (id == null) {
+                auction = new Auction();
+            }else{
+                auction = service.find(id);
+            }
         }
         return auction;
     }
