@@ -7,8 +7,6 @@ import pl.edu.pjwstk.login.auction.model.Photo;
 import pl.edu.pjwstk.login.auction.service.AuctionService;
 import pl.edu.pjwstk.login.auction.service.CategoryService;
 import pl.edu.pjwstk.login.controllers.UserContext;
-import pl.edu.pjwstk.login.controllers.UserService;
-import pl.edu.pjwstk.login.model.User;
 
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
