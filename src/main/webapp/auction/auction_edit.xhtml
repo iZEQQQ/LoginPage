@@ -6,6 +6,9 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
+    <f:metadata>
+        <f:viewParam name="id" value="#{auctionEdit.id}"/>
+    </f:metadata>
     <h:head>
         <h:outputStylesheet library="css" name="styles.css"/>
     </h:head>
@@ -59,6 +62,39 @@
             <h:message for="img"/>
             <h:commandButton value="add" action="#{auctionEdit.addImage}"/>
         </h:form>
+
+<!--        TODO PODEPNIJ PARAMETRY-->
+<!--        <h:dataTable var="image" value="#{auctionEdit.auction.photoList}">-->
+<!--            <h:column>#{image.id}</h:column>-->
+<!--            <h:column>#{image.link}</h:column>-->
+<!--            <h:column><h:graphicImage width="150" url="#{image.link}"/></h:column>-->
+<!--            <h:column>-->
+<!--                <h:form>-->
+<!--                    <h:commandButton action="#{auctionEdit.removePhoto(image)}" value="Delete"/>-->
+<!--                </h:form>-->
+<!--            </h:column>-->
+<!--        </h:dataTable>-->
+<!--    TODO formularz do dodawania tektowj zmiennej  metode add string Param-->
+<!--        <h:form>-->
+<!--            <h:outputLabel for="img">-->
+<!--                Image url:-->
+<!--            </h:outputLabel>-->
+<!--            <h:inputText id="img" value="#{auctionEdit.newImageUrl}"/>-->
+<!--            <h:message for="img"/>-->
+<!--            <h:commandButton value="add" action="#{auctionEdit.addImage}"/>-->
+<!--        </h:form>-->
+<!--    todo FORMULARZ DO DODAWANIA ZMIENNEJ LICZBOWEJ I METODE ADD LONG PARAM-->
+<!--        <h:form>-->
+<!--            <h:outputLabel for="img">-->
+<!--                Image url:-->
+<!--            </h:outputLabel>-->
+<!--            <h:inputText id="img" value="#{auctionEdit.newImageUrl}"/>-->
+<!--            <h:message for="img"/>-->
+<!--            <h:commandButton value="add" action="#{auctionEdit.addImage}"/>-->
+<!--        </h:form>-->
+
+
+
     </h:body>
 
 </f:view>

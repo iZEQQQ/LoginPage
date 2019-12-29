@@ -24,8 +24,4 @@ public class AuctionList implements Serializable {
         }
         return auctionList;
     }
-
-
-
-
 }

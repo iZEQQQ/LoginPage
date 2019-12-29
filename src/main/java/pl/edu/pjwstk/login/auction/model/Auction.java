@@ -27,11 +27,11 @@ public class Auction implements Serializable {
     private Double price;
 
     @Fetch(FetchMode.SUBSELECT)
-    @OneToMany(mappedBy = "auction",fetch = FetchType.EAGER, orphanRemoval = true, cascade ={CascadeType.PERSIST, CascadeType.REMOVE})
+    @OneToMany(mappedBy = "auction",fetch = FetchType.EAGER, orphanRemoval = true, cascade ={CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE})
     private List<AuctionParameter> auctionParameterList = new ArrayList<>();
 
     @Fetch(FetchMode.SUBSELECT)
-    @OneToMany(mappedBy = "auction")
+    @OneToMany(mappedBy = "auction",fetch = FetchType.EAGER, orphanRemoval = true, cascade ={CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE})
     private List<Photo> photoList = new ArrayList<>();
 
     @ManyToOne
@@ -96,7 +96,7 @@ public class Auction implements Serializable {
     public User getUser() {
         return user;
     }
-
+// todo metoda zwracajaca pierwszy obrazek albo null albo obrazek
     public void setUser(User user) {
         this.user = user;
     }

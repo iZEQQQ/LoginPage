@@ -18,12 +18,13 @@ public class AutFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         String path = ((HttpServletRequest) request).getServletPath();
+        String query = ((HttpServletRequest) request).getQueryString();
         if (userContext.isLogged()
                 || path.equals("/sign_done.xhtml")
                 || path.equals("/sign_up.xhtml")
-                || path.endsWith("ln=css")
-                || path.endsWith("ln=img")
-                || path.endsWith("ln=js")) {
+                || query != null && query.endsWith("ln=css")
+                || query != null && query.endsWith("ln=img")
+                || query != null && query.endsWith("ln=js")) {
             chain.doFilter(request, response);
         } else {
             ((HttpServletResponse) response).sendRedirect("sign_done.xhtml");

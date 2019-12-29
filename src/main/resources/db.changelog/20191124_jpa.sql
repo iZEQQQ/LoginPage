@@ -1,11 +1,4 @@
-CREATE TABLE parameter
-(
-    id   SERIAL,
-    name VARCHAR NOT NULL,
 
-    PRIMARY KEY (id)
-
-);
 
 CREATE TABLE branch
 (
@@ -52,9 +45,8 @@ CREATE TABLE auction_parameter
     number_value BIGINT,
     text_value   TEXT,
     auction_id   int not null,
-    parameter_id int not null,
+    parameter_name VARCHAR not null,
     PRIMARY KEY (id),
-    FOREIGN KEY (auction_id) REFERENCES auction (id),
-    FOREIGN KEY (parameter_id) REFERENCES parameter (id)
+    FOREIGN KEY (auction_id) REFERENCES auction (id)
 
 );

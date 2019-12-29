@@ -18,6 +18,21 @@ public class AuctionParameter implements Serializable {
     @ManyToOne
     private Auction auction;
 
+    public AuctionParameter() {
+    }
+
+
+    public AuctionParameter(Auction auction, String textValue) {
+        this.auction = auction;
+        this.textValue = textValue;
+    }
+
+    public AuctionParameter(Auction auction, Long numberValue) {
+        this.auction = auction;
+        this.numberValue = numberValue;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -27,16 +42,25 @@ public class AuctionParameter implements Serializable {
                 Objects.equals(numberValue, that.numberValue) &&
                 Objects.equals(textValue, that.textValue) &&
                 Objects.equals(auction, that.auction) &&
-                Objects.equals(parameter, that.parameter);
+                Objects.equals(name, that.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, numberValue, textValue, auction, parameter);
+        return Objects.hash(id, numberValue, textValue, auction, name);
     }
 
-    @ManyToOne
-    private Parameter parameter;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Column(name = "parameter_name")
+    private String name;
+
 
     public Integer getId() {
         return id;
@@ -69,14 +93,5 @@ public class AuctionParameter implements Serializable {
     public void setAuction(Auction auction) {
         this.auction = auction;
     }
-
-    public Parameter getParameter() {
-        return parameter;
-    }
-
-    public void setParameter(Parameter parameter) {
-        this.parameter = parameter;
-    }
-
 
 }
