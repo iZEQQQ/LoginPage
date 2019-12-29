@@ -2,6 +2,7 @@ package pl.edu.pjwstk.login.auction.view;
 
 
 import pl.edu.pjwstk.login.auction.model.Auction;
+import pl.edu.pjwstk.login.auction.model.AuctionParameter;
 import pl.edu.pjwstk.login.auction.model.Category;
 import pl.edu.pjwstk.login.auction.model.Photo;
 import pl.edu.pjwstk.login.auction.service.AuctionService;
@@ -29,6 +30,8 @@ public class AuctionEdit implements Serializable {
     private List<Category> categoryList;
     private String newImageUrl;
     private Integer id;
+
+
 
     public Integer getId() {
         return id;
@@ -78,9 +81,20 @@ public class AuctionEdit implements Serializable {
 
     public String removePhoto(Photo photo) {
         auction.getPhotoList().remove(photo);
-
-
+        return null;
+    }
+    public AuctionParameter addAuctionTextParam(AuctionParameter parameter, String text){
+        auction.getAuctionParameterList().add(new AuctionParameter(auction,text));
+        return null;
+    }
+    public AuctionParameter addAuctionNumParam(AuctionParameter parameter, Long num){
+        auction.getAuctionParameterList().add(new AuctionParameter(auction,num));
         return null;
     }
 
+
+    public AuctionParameter removeParameter(AuctionParameter parameter){
+        auction.getAuctionParameterList().remove(parameter);
+        return null;
+    }
 }

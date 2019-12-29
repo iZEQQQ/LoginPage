@@ -27,15 +27,15 @@ public class Auction implements Serializable {
     private Double price;
 
     @Fetch(FetchMode.SUBSELECT)
-    @OneToMany(mappedBy = "auction",fetch = FetchType.EAGER, orphanRemoval = true, cascade ={CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE})
+    @OneToMany(mappedBy = "auction", fetch = FetchType.EAGER, orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE})
     private List<AuctionParameter> auctionParameterList = new ArrayList<>();
 
     @Fetch(FetchMode.SUBSELECT)
-    @OneToMany(mappedBy = "auction",fetch = FetchType.EAGER, orphanRemoval = true, cascade ={CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE})
+    @OneToMany(mappedBy = "auction", fetch = FetchType.EAGER, orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE})
     private List<Photo> photoList = new ArrayList<>();
 
     @ManyToOne
-    @JoinColumn(name ="owner_id")
+    @JoinColumn(name = "owner_id")
     private User user;
 
     @Override
@@ -96,7 +96,24 @@ public class Auction implements Serializable {
     public User getUser() {
         return user;
     }
-// todo metoda zwracajaca pierwszy obrazek albo null albo obrazek
+
+    public List<AuctionParameter> getAuctionParameterList() {
+        return auctionParameterList;
+    }
+
+    public void setAuctionParameterList(List<AuctionParameter> auctionParameterList) {
+        this.auctionParameterList = auctionParameterList;
+    }
+
+    public Photo getFirstPhoto() {
+        if (photoList == null) {
+            return null;
+        } else {
+            return photoList.get(0);
+        }
+    }
+
+
     public void setUser(User user) {
         this.user = user;
     }
@@ -109,13 +126,6 @@ public class Auction implements Serializable {
         this.category = category;
     }
 
-    public List<AuctionParameter> getAuctionParameterList() {
-        return auctionParameterList;
-    }
-
-    public void setAuctionParameterList(List<AuctionParameter> auctionParameterList) {
-        this.auctionParameterList = auctionParameterList;
-    }
 
     public List<Photo> getPhotoList() {
         return photoList;

@@ -64,25 +64,26 @@
         </h:form>
 
 <!--        TODO PODEPNIJ PARAMETRY-->
-<!--        <h:dataTable var="image" value="#{auctionEdit.auction.photoList}">-->
-<!--            <h:column>#{image.id}</h:column>-->
-<!--            <h:column>#{image.link}</h:column>-->
-<!--            <h:column><h:graphicImage width="150" url="#{image.link}"/></h:column>-->
-<!--            <h:column>-->
-<!--                <h:form>-->
-<!--                    <h:commandButton action="#{auctionEdit.removePhoto(image)}" value="Delete"/>-->
-<!--                </h:form>-->
-<!--            </h:column>-->
-<!--        </h:dataTable>-->
+        <h:dataTable var="params" value="#{auctionEdit.auction.auctionParameterList}">
+            <h:column>#{params.name}</h:column>
+            <h:column>#{params.textValue}</h:column>
+            <h:column>#{params.numberValue}</h:column>
+            <h:column>
+                <h:form>
+                    <h:commandButton action="#{auctionEdit.removeParameter(params)}" value="Delete"/>
+                </h:form>
+            </h:column>
+        </h:dataTable>
 <!--    TODO formularz do dodawania tektowj zmiennej  metode add string Param-->
-<!--        <h:form>-->
-<!--            <h:outputLabel for="img">-->
-<!--                Image url:-->
-<!--            </h:outputLabel>-->
-<!--            <h:inputText id="img" value="#{auctionEdit.newImageUrl}"/>-->
-<!--            <h:message for="img"/>-->
-<!--            <h:commandButton value="add" action="#{auctionEdit.addImage}"/>-->
-<!--        </h:form>-->
+        <h:form>
+            <h:outputLabel for="auction_param">
+                Param name:
+            </h:outputLabel>
+            <h:inputText id="img" value="#{}"/>
+            <h:inputText id="img" value="#{auctionEdit.newImageUrl}"/>
+            <h:message for="img"/>
+            <h:commandButton value="add" action="#{auctionEdit.addImage}"/>
+        </h:form>
 <!--    todo FORMULARZ DO DODAWANIA ZMIENNEJ LICZBOWEJ I METODE ADD LONG PARAM-->
 <!--        <h:form>-->
 <!--            <h:outputLabel for="img">-->
