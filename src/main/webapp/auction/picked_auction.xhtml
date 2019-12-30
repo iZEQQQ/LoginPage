@@ -6,34 +6,47 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
+    <f:metadata>
+        <f:viewParam name="id" value="#{auctionEdit.id}"/>
+    </f:metadata>
     <h:head>
         <h:outputStylesheet library="css" name="styles.css"/>
     </h:head>
     <h:body>
-        <h:dataTable id="auction" value="#{auctionEdit.auction.id}">
-            <h:column>
-                #{auctionEdit.auction.id}
-            </h:column>
-            <h:column>
-                #{auctionEdit.auction.title}
-            </h:column>
-            <h:column>
-                #{auctionEdit.auction.description}
-            </h:column>
-            <h:column>
-                #{auctionEdit.auction.price} $
-            </h:column>
-            <h:column>
-                #{auctionEdit.auction.category.name}
-            </h:column>
-            <h:dataTable var="image" value="#{auctionEdit.auction.photoList}">
-                <h:column>
-                    <h:graphicImage width="150" url="#{image.link}"/>
-                </h:column>
-            </h:dataTable>
-        </h:dataTable>
-        <h:button value="Back" outcome="/logged_welcome.xhtml"/>
+        <h:panelGrid columns="3" bodyrows="5">
+            <h:outputLabel for="title">
+                Title:
+            </h:outputLabel>
+            <h:outputText id="title" value="#{auctionEdit.auction.title}"/>
+            <h:message for="title"/>
+            <h:outputLabel for="description">
+                Description:
+            </h:outputLabel>
+            <h:outputText id="description" value="#{auctionEdit.auction.description}"/>
+            <h:message for="description"/>
+            <h:outputLabel for="price">
+                Price:
+            </h:outputLabel>
+            <h:outputText id="price" value="#{auctionEdit.auction.price}"/>
+            <h:message for="price"/>
 
-    </h:body>
+
+        </h:panelGrid>
+        <h:dataTable var="params" value="#{auctionEdit.auction.auctionParameterList}">
+            <h:column>#{params.name}</h:column>
+            <h:column>#{params.textValue}</h:column>
+            <h:column>#{params.numberValue}</h:column>
+        </h:dataTable>
+
+
+        <h:dataTable var="image" value="#{auctionEdit.auction.photoList}">
+            <h:column>
+                <h:graphicImage width="150" url="#{image.link}"/>
+            </h:column>
+
+        </h:dataTable>
+    <h:button value="Back" outcome="/logged_welcome.xhtml"/>
+
+</h:body>
 </f:view>
-</html>
+        </html>
