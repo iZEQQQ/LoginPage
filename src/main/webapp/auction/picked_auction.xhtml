@@ -10,31 +10,27 @@
         <h:outputStylesheet library="css" name="styles.css"/>
     </h:head>
     <h:body>
-        <h:dataTable var="auction" value="#{auctionList.auctionList}">
+        <h:dataTable id="auction" value="#{auctionEdit.auction.id}">
             <h:column>
-                #{auction.id}
+                #{auctionEdit.auction.id}
             </h:column>
             <h:column>
-                #{auction.title}
+                #{auctionEdit.auction.title}
             </h:column>
             <h:column>
-                #{auction.description}
+                #{auctionEdit.auction.description}
             </h:column>
             <h:column>
-                #{auction.price} $
+                #{auctionEdit.auction.price} $
             </h:column>
             <h:column>
-                #{auction.category.name}
+                #{auctionEdit.auction.category.name}
             </h:column>
-            <h:column>
-                <h:graphicImage width="150" url="#{auction.firstPhoto.link}"/>
-            </h:column>
-            <h:column>
-                <h:button value="Go" outcome="/auction/picked_auction.xhtml">
-                    <f:param name="id" value="#{auction.id}"/>
-                </h:button>
-            </h:column>
-<!--TODO DODAC MOZLIWOSC WEJSCIA W AUKCJE ORAZ ZROBIENIA STRONY Z DANA AUKCJA -->
+            <h:dataTable var="image" value="#{auctionEdit.auction.photoList}">
+                <h:column>
+                    <h:graphicImage width="150" url="#{image.link}"/>
+                </h:column>
+            </h:dataTable>
         </h:dataTable>
         <h:button value="Back" outcome="/logged_welcome.xhtml"/>
 

@@ -74,35 +74,40 @@
                 </h:form>
             </h:column>
         </h:dataTable>
+
         <h:form>
+            <h:panelGrid columns="3" bodyrows="5">
 
-            <h:outputLabel for="textName">
-                Param name:
-            </h:outputLabel>
-            <h:inputText id="textName" value="#{auctionEdit.name}"/>
-            <h:message for="textName"/>
+                <h:outputLabel for="textName">
+                    Param name:
+                </h:outputLabel>
+                <h:inputText id="textName" value="#{auctionEdit.name}"/>
+                <h:message for="textName"/>
 
-            <h:outputLabel for="text">
-                Text param:
-            </h:outputLabel>
-            <h:inputText id="text" value="#{auctionEdit.textParam}"/>
-            <h:message for="text"/>
-            <h:commandButton value="add" action="#{auctionEdit.addAuctionTextParam}"/>
+                <h:outputLabel for="text">
+                    Text param:
+                </h:outputLabel>
+                <h:inputText id="text" value="#{auctionEdit.textParam}"/>
+                <h:message for="text"/>
+                <h:commandButton value="add" action="#{auctionEdit.addAuctionTextParam}"/>
+            </h:panelGrid>
         </h:form>
         <h:form>
+            <h:panelGrid columns="3" bodyrows="5">
 
-            <h:outputLabel for="numName">
-                Number param name:
-            </h:outputLabel>
-            <h:inputText id="numName" value="#{auctionEdit.name}"/>
-            <h:message for="numName"/>
+                <h:outputLabel for="numName">
+                    Param name:
+                </h:outputLabel>
+                <h:inputText id="numName" value="#{auctionEdit.name}"/>
+                <h:message for="numName"/>
 
-            <h:outputLabel for="num">
-                Number param:
-            </h:outputLabel>
-            <h:inputText id="num" value="#{auctionEdit.numParam}"/>
-            <h:message for="num"/>
-            <h:commandButton value="add" action="#{auctionEdit.addAuctionNumParam}"/>
+                <h:outputLabel for="num">
+                    Number param:
+                </h:outputLabel>
+                <h:inputText id="num" value="#{auctionEdit.numParam}"/>
+                <h:message for="num"/>
+                <h:commandButton value="add" action="#{auctionEdit.addAuctionNumParam}"/>
+            </h:panelGrid>
         </h:form>
 
 

@@ -5,6 +5,7 @@ import org.hibernate.annotations.FetchMode;
 import pl.edu.pjwstk.login.model.User;
 
 import javax.persistence.*;
+import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -24,6 +25,7 @@ public class Auction implements Serializable {
     private String description;
     @NotNull
     @DecimalMin("0")
+    @DecimalMax("999999999.99")
     private Double price;
 
     @Fetch(FetchMode.SUBSELECT)
