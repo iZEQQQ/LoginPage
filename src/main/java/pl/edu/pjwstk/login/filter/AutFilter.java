@@ -9,7 +9,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
+//TODO dodac admina uzytkownika oraz wszedzie guziki "GO BACK"
 @WebFilter("*")
 public class AutFilter implements Filter {
     @Inject

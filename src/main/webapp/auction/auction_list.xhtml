@@ -8,11 +8,6 @@
 <f:view>
     <h:head>
         <h:outputStylesheet library="css" name="styles.css"/>
-        <style type="text/css">
-            body {
-                background-image: url(../resources/img/background.png);
-            }
-        </style>
     </h:head>
     <h:body>
         <h:dataTable var="auction" value="#{auctionList.auctionList}">
@@ -31,12 +26,11 @@
             <h:column>
                 #{auction.category.name}
             </h:column>
-<!--            todo dodac kolumne z obrazkiem-->
             <h:column>
-                <h:graphicImage width="150" url="#{auction.firstPhoto}"/>
+                <h:graphicImage width="150" url="#{auction.firstPhoto.link}"/>
             </h:column>
-
-            </h:dataTable>
+<!--TODO DODAC MOZLIWOSC WEJSCIA W AUKCJE ORAZ ZROBIENIA STRONY Z DANA AUKCJA -->
+        </h:dataTable>
     </h:body>
 </f:view>
 </html>

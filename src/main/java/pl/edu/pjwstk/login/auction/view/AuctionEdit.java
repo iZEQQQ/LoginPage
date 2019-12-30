@@ -30,8 +30,17 @@ public class AuctionEdit implements Serializable {
     private List<Category> categoryList;
     private String newImageUrl;
     private Integer id;
+    private String textParam;
+    private Long numParam;
+    private String name;
 
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public Integer getId() {
         return id;
@@ -60,7 +69,7 @@ public class AuctionEdit implements Serializable {
         if (auction == null) {
             if (id == null) {
                 auction = new Auction();
-            }else{
+            } else {
                 auction = service.find(id);
             }
         }
@@ -83,17 +92,34 @@ public class AuctionEdit implements Serializable {
         auction.getPhotoList().remove(photo);
         return null;
     }
-    public AuctionParameter addAuctionTextParam(AuctionParameter parameter, String text){
-        auction.getAuctionParameterList().add(new AuctionParameter(auction,text));
-        return null;
-    }
-    public AuctionParameter addAuctionNumParam(AuctionParameter parameter, Long num){
-        auction.getAuctionParameterList().add(new AuctionParameter(auction,num));
+
+    public AuctionParameter addAuctionTextParam() {
+        auction.getAuctionParameterList().add(new AuctionParameter(auction, textParam, name));
         return null;
     }
 
+    public AuctionParameter addAuctionNumParam() {
+        auction.getAuctionParameterList().add(new AuctionParameter(auction, numParam, name));
+        return null;
+    }
 
-    public AuctionParameter removeParameter(AuctionParameter parameter){
+    public String getTextParam() {
+        return textParam;
+    }
+
+    public void setTextParam(String textParam) {
+        this.textParam = textParam;
+    }
+
+    public Long getNumParam() {
+        return numParam;
+    }
+
+    public void setNumParam(Long numParam) {
+        this.numParam = numParam;
+    }
+
+    public AuctionParameter removeParameter(AuctionParameter parameter) {
         auction.getAuctionParameterList().remove(parameter);
         return null;
     }

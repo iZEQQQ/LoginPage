@@ -14,6 +14,9 @@ public class AuctionParameter implements Serializable {
     private Long numberValue;
     @Column(name = "text_value")
     private String textValue;
+    @Column(name = "parameter_name")
+    private String name;
+
 
     @ManyToOne
     private Auction auction;
@@ -22,14 +25,16 @@ public class AuctionParameter implements Serializable {
     }
 
 
-    public AuctionParameter(Auction auction, String textValue) {
+    public AuctionParameter(Auction auction, String textValue, String name) {
         this.auction = auction;
         this.textValue = textValue;
+        this.name = name;
     }
 
-    public AuctionParameter(Auction auction, Long numberValue) {
+    public AuctionParameter(Auction auction, Long numberValue, String name) {
         this.auction = auction;
         this.numberValue = numberValue;
+        this.name = name;
     }
 
 
@@ -58,8 +63,6 @@ public class AuctionParameter implements Serializable {
         this.name = name;
     }
 
-    @Column(name = "parameter_name")
-    private String name;
 
 
     public Integer getId() {
