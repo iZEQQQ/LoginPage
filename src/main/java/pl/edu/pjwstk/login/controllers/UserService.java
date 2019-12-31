@@ -13,6 +13,7 @@ import javax.persistence.PersistenceContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
+import java.util.List;
 
 @ApplicationScoped
 public class UserService {
@@ -24,16 +25,24 @@ public class UserService {
     @PersistenceContext
     private EntityManager em;
 
+    public List<User> findAllUsers(){
+        return em.createQuery("SELECT u FROM User u",User.class).getResultList();
+    }
+
 
     @Transactional
     public boolean register(User user) {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         user.setPass(bCryptPasswordEncoder.encode(user.getPass()));
+        if(findAllUsers().isEmpty()){
+            user.setAdmin(true);
+        }
         if (em.find(User.class, user.getLogin()) == null) {
             em.persist(user);
             return true;
         }
-        return false;
+
+            return false;
     }
 
     public User findByLogin(String login) {
@@ -54,9 +63,9 @@ public class UserService {
     }
 
 
-    public void logout(){
+    public void logout() {
         HttpSession session = httpServletRequest.getSession(false);
-        if(session!= null){
+        if (session != null) {
             session.invalidate();
         }
     }

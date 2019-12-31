@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-//TODO dodac admina uzytkownika
 @WebFilter(urlPatterns = {"/auction/branch_edit.xhtml","/auction/category_edit.xhtml"})
 public class UserFilter implements Filter {
     @Inject

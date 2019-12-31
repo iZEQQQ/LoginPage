@@ -23,6 +23,8 @@ public class User implements Serializable {
     private String loginPass;
     private Boolean isAdmin = false;
 
+
+
     public String getPass() {
         return pass;
     }
