@@ -21,6 +21,7 @@ public class User implements Serializable {
     private String checkPass;
     private String loginLogin;
     private String loginPass;
+    private Boolean isAdmin = false;
 
     public String getPass() {
         return pass;
@@ -78,41 +79,12 @@ public class User implements Serializable {
         return email;
     }
 
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "pass='" + pass + '\'' +
-                ", login='" + login + '\'' +
-                ", surname='" + surname + '\'' +
-                ", name='" + name + '\'' +
-                ", bday=" + bday +
-                ", email='" + email + '\'' +
-                ", checkPass='" + checkPass + '\'' +
-                ", loginLogin='" + loginLogin + '\'' +
-                ", loginPass='" + loginPass + '\'' +
-                '}';
+    public Boolean getAdmin() {
+        return isAdmin;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return Objects.equals(pass, user.pass) &&
-                Objects.equals(login, user.login) &&
-                Objects.equals(surname, user.surname) &&
-                Objects.equals(name, user.name) &&
-                Objects.equals(bday, user.bday) &&
-                Objects.equals(email, user.email) &&
-                Objects.equals(checkPass, user.checkPass) &&
-                Objects.equals(loginLogin, user.loginLogin) &&
-                Objects.equals(loginPass, user.loginPass);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(pass, login, surname, name, bday, email, checkPass, loginLogin, loginPass);
+    public void setAdmin(Boolean admin) {
+        isAdmin = admin;
     }
 
     public String getLoginLogin() {
@@ -129,6 +101,44 @@ public class User implements Serializable {
 
     public void setLoginPass(String loginPass) {
         this.loginPass = loginPass;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(login, user.login) &&
+                Objects.equals(pass, user.pass) &&
+                Objects.equals(surname, user.surname) &&
+                Objects.equals(name, user.name) &&
+                Objects.equals(bday, user.bday) &&
+                Objects.equals(email, user.email) &&
+                Objects.equals(checkPass, user.checkPass) &&
+                Objects.equals(loginLogin, user.loginLogin) &&
+                Objects.equals(loginPass, user.loginPass) &&
+                Objects.equals(isAdmin, user.isAdmin);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(login, pass, surname, name, bday, email, checkPass, loginLogin, loginPass, isAdmin);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "login='" + login + '\'' +
+                ", pass='" + pass + '\'' +
+                ", surname='" + surname + '\'' +
+                ", name='" + name + '\'' +
+                ", bday=" + bday +
+                ", email='" + email + '\'' +
+                ", checkPass='" + checkPass + '\'' +
+                ", loginLogin='" + loginLogin + '\'' +
+                ", loginPass='" + loginPass + '\'' +
+                ", isAdmin=" + isAdmin +
+                '}';
     }
 }
 

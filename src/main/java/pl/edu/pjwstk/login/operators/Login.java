@@ -41,5 +41,10 @@ public class Login implements Serializable {
 
     }
 
+    public String logout(){
+        userService.logout();
+        return "sign_done?faces-redirect=true";
+    }
+
 
 }

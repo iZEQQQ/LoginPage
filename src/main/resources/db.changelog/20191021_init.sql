@@ -12,6 +12,7 @@ CREATE TABLE users
     loginLogin  VARCHAR,
     loginPass  VARCHAR,
     bday  DATE NOT NULL,
+    isAdmin BOOLEAN NOT NULL,
 
     PRIMARY KEY (login)
 );

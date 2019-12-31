@@ -10,11 +10,15 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 
 @ApplicationScoped
 public class UserService {
 
+    @Inject
+    private HttpServletRequest httpServletRequest;
 
     @PersistenceContext
     private EntityManager em;
@@ -38,12 +42,24 @@ public class UserService {
     public boolean login(String login, String pass) {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         User user = findByLogin(login);
+
         if (user != null) {
+            HttpSession session = httpServletRequest.getSession(true);
 
             return bCryptPasswordEncoder
                     .matches(pass, user.getPass());
         }
         return false;
     }
+
+
+    public void logout(){
+        HttpSession session = httpServletRequest.getSession(false);
+        if(session!= null){
+            session.invalidate();
+        }
+    }
+
+
 
 }

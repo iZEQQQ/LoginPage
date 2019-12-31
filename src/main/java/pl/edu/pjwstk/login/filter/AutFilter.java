@@ -19,6 +19,7 @@ public class AutFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         String path = ((HttpServletRequest) request).getServletPath();
         String query = ((HttpServletRequest) request).getQueryString();
+
         if (userContext.isLogged()
                 || path.equals("/sign_done.xhtml")
                 || path.equals("/sign_up.xhtml")
