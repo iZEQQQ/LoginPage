@@ -23,11 +23,11 @@
         </h:column>
         <h:column>
             <h:form>
-                <h:commandButton value="Delete category" action="#{categoryList.delete(category)}"/>
+                <h:commandButton value="Delete category" action="#{categoryList.delete(category)}" rendered="#{userContext.adminRole}"/>
             </h:form>
         </h:column>
     </h:dataTable>
-    <h:button value="Add" outcome="/auction/category_edit.xhtml"/>
+    <h:button value="Add" outcome="/auction/category_edit.xhtml" rendered="#{userContext.adminRole}"/>
     <h:button value="Back" outcome="/logged_welcome.xhtml"/>
 
 </h:body>

@@ -20,19 +20,20 @@
             #{branch.name}
         </h:column>
         <h:column>
-            <h:button value="edit" outcome="/auction/branch_edit.xhtml">
+            <h:button value="edit" outcome="/auction/branch_edit.xhtml" rendered="#{userContext.adminRole}">
                 <f:param name="id" value="#{branch.id}"/>
             </h:button>
         </h:column>
         <h:column>
             <h:form>
-                <h:commandButton value="Delete branch" action="#{branchList.delete(branch)}"/>
+                <h:commandButton value="Delete branch" action="#{branchList.delete(branch)}" rendered="#{userContext.adminRole}"/>
             </h:form>
         </h:column>
     </h:dataTable>
-    <h:button value="Add" outcome="/auction/branch_edit.xhtml"/>
+
+    <h:button value="Add" outcome="/auction/branch_edit.xhtml" rendered="#{userContext.adminRole}"/>
     <h:button value="Back" outcome="/logged_welcome.xhtml"/>
 
 </h:body>
-</f:view>
+</f:view>x
 </html>

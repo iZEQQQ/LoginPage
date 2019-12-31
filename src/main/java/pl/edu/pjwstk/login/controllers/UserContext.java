@@ -13,6 +13,7 @@ import java.io.Serializable;
 public class UserContext implements Serializable {
     private User user;
 
+
     public void setUser(User user) {
         this.user = user;
     }
@@ -25,6 +26,9 @@ public class UserContext implements Serializable {
         return user != null;
     }
 
+    public boolean getAdminRole() {
+        return user.getAdmin();
+    }
 
 
 }

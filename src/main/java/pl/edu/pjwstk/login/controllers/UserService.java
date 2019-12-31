@@ -17,6 +17,7 @@ import javax.transaction.Transactional;
 @ApplicationScoped
 public class UserService {
 
+
     @Inject
     private HttpServletRequest httpServletRequest;
 
@@ -59,7 +60,6 @@ public class UserService {
             session.invalidate();
         }
     }
-
 
 
 }
