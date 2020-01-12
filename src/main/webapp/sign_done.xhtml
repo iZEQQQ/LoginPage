@@ -15,12 +15,12 @@
         <h:form>
             <h:panelGrid columns="3">
                 <h:outputLabel for="login" value="Login: "/>
-                <h:inputText id="login" value="#{login.user.loginLogin}"/>
+                <h:inputText id="login" value="#{login.user.loginLogin}" />
                 <h:message for="login"/>
 
-                <h:outputLabel for="pass" value="Password: "/>
-                <h:inputSecret id="pass" value="#{login.user.loginPass}"/>
-                <h:message for="pass"/>
+                <h:outputLabel for="password" value="Password: "/>
+                <h:inputSecret id="password" value="#{login.user.loginPass}"/>
+                <h:message for="password"/>
 
                 <h:commandButton action="#{login.loginUser}" value="Login in"/>
                 <h:commandButton action="sign_up?faces-redirect=true" value="Register"/>

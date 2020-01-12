@@ -2,6 +2,7 @@ package pl.edu.pjwstk.login.auction.service;
 
 
 import pl.edu.pjwstk.login.auction.model.Auction;
+import pl.edu.pjwstk.login.auction.model.Category;
 import pl.edu.pjwstk.login.model.User;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -42,4 +43,11 @@ public class AuctionService {
         return em.createQuery("SELECT a FROM Auction  a WHERE a.user = :user", Auction.class)
                 .setParameter("user", user).getResultList();
     }
+
+    public List<Auction> findAuctionsByBranchAndCategory(String branch, String category) {
+        return em.createQuery("SELECT a FROM Auction  a WHERE a.category.name=:category AND a.category.branch.name=:branch",Auction.class)
+                .setParameter("branch", branch)
+                .setParameter("category" ,category)
+                .getResultList();
+      }
 }

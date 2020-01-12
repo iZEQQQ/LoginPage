@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 //TODO dodac admina uzytkownika
-@WebFilter("*")
+//@WebFilter("*")
 public class AutFilter implements Filter {
     @Inject
     UserContext userContext;
@@ -28,7 +28,7 @@ public class AutFilter implements Filter {
                 || query != null && query.endsWith("ln=js")) {
             chain.doFilter(request, response);
         } else {
-            ((HttpServletResponse) response).sendRedirect("sign_done.xhtml");
+            ((HttpServletResponse) response).sendRedirect("/login/sign_done.xhtml");
         }
 
 

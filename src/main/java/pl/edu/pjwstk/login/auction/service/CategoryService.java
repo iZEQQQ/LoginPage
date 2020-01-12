@@ -32,8 +32,14 @@ public class CategoryService {
     public void deleteCategory(Category category) {
         em.remove(em.merge(category));
     }
-    public Category find(int id){
-        return em.find(Category.class,id);
+
+    public Category find(int id) {
+        return em.find(Category.class, id);
+    }
+
+    public List<Category> findCategoriesByBranch(String branch) {
+        return em.createQuery("SELECT c FROM Category  c WHERE c.branch.name = :branch", Category.class)
+                .setParameter("branch", branch).getResultList();
     }
 
 }

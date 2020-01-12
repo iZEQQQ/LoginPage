@@ -4,6 +4,7 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import pl.edu.pjwstk.login.model.User;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
@@ -38,6 +39,7 @@ public class Auction implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "owner_id")
+    @JsonbTransient
     private User user;
 
     @Override
@@ -108,7 +110,7 @@ public class Auction implements Serializable {
     }
 
     public Photo getFirstPhoto() {
-        if (photoList == null) {
+        if (photoList == null || photoList.isEmpty()) {
             return null;
         } else {
             return photoList.get(0);
