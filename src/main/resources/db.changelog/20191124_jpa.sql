@@ -50,3 +50,5 @@ CREATE TABLE auction_parameter
     FOREIGN KEY (auction_id) REFERENCES auction (id)
 
 );
+
+-- doda koszyk w sql
