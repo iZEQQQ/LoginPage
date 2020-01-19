@@ -58,6 +58,7 @@ public class AuctionEdit implements Serializable {
         this.newImageUrl = newImageUrl;
     }
 
+
     public List<Category> getCategoryList() {
         if (categoryList == null) {
             categoryList = categoryService.findAllCategories();

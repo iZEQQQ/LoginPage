@@ -51,4 +51,3 @@ CREATE TABLE auction_parameter
 
 );
 
--- doda koszyk w sql

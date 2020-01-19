@@ -28,7 +28,10 @@
                 #{auction.category.name}
             </h:column>
             <h:column>
-                <h:button value="edit" outcome="/auction/auction_edit.xhtml">
+                <h:graphicImage width="150" url="#{auction.firstPhoto.link}"/>
+            </h:column>
+            <h:column>
+                <h:button value="edit"  outcome="/auction/auction_edit.xhtml">
                     <f:param name="id" value="#{auction.id}"/>
                 </h:button>
             </h:column>
