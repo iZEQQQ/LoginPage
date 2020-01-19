@@ -38,7 +38,7 @@ function renderAuctions( auctions){
     let auctionsBody = $("#auctionsBody");
     auctionsBody.empty();
     for(let auction of auctions){
-        auctionsBody.append($("<tr>").append($("<td>").text(auction.name)).append($("<td>").append($("<button>").text("Buy").click(function () {
+        auctionsBody.append($("<tr>").append($("<td>").text(auction.id)).append($("<td>").append($("<button>").text("Buy").click(function () {
 
         }))));
     }

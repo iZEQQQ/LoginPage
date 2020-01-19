@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.login.auction.view;
+package pl.edu.pjwstk.login.auction.controller;
 
 import pl.edu.pjwstk.login.auction.model.Branch;
 import pl.edu.pjwstk.login.auction.service.BranchService;
