@@ -35,6 +35,7 @@ public class UserService {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         user.setPass(bCryptPasswordEncoder.encode(user.getPass()));
         // mechanizm tworzacy admina gdy baza danych uzytkownikow jest pusta
+        //TODO ZMIENIC MIECHANIZM NA ADMINA
         if(findAllUsers().isEmpty()){
             user.setAdmin(true);
         }
