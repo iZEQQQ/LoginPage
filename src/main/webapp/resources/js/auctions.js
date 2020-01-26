@@ -28,7 +28,7 @@ function renderCategories(branchName, categories){
         categoriesBody.append($("<tr>").append($("<td>").text(category.name)).append($("<td>").append($("<button>").text("Show").click(function () {
             $.get( "/login/api/branches/"+branchName+"/categories/"+category.name+"/auctions", function( data ) {
                 renderAuctions(data);
-            });
+            }); 
         }))));
     }
 }
