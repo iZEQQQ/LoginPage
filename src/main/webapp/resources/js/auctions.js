@@ -44,4 +44,7 @@ function renderAuctions( auctions){
     }
 }
 
-//TODO dodac popupy w koszyku powinien byc w slide
+//TODO dodac popup koszyka w xhtml
+//TODO dodać przycisk i przekazać id aukcji i on click ma
+// wywolac funkcje z js ale parametr to bedzie z expresion languiage by
+// wywolac id aukcji
