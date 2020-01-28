@@ -9,7 +9,6 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-//TODO dodac admina uzytkownika
 @WebFilter("*")
 public class AutFilter implements Filter {
     @Inject

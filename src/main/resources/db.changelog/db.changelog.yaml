@@ -21,9 +21,17 @@ databaseChangeLog:
         splitStatements: false
         path: 20191201_insert.sql
   - changeSet:
-      id: 20191201_insert
+      id: 20200126_bucket
       author: jGorny
       sqlFile:
         relativeToChangelogFile: true
         splitStatements: false
         path: 20200126_bucket.sql
+  - changeSet:
+      id: 20200128_admin
+      author: jGorny
+      sqlFile:
+        relativeToChangelogFile: true
+        splitStatements: false
+        path: 20200128_admin.sql
+

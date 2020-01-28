@@ -7,5 +7,5 @@ CREATE TABLE bucket_elements
     count     INT,
     PRIMARY KEY (id),
     FOREIGN KEY (userid) REFERENCES users (login),
-    FOREIGN KEY (auctionid) REFERENCES auctions (id)
+    FOREIGN KEY (auctionid) REFERENCES auction (id)
 );

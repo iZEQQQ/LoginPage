@@ -19,6 +19,8 @@ import java.util.List;
 public class UserService {
 
 
+
+
     @Inject
     private HttpServletRequest httpServletRequest;
 
@@ -34,8 +36,7 @@ public class UserService {
     public boolean register(User user) {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         user.setPass(bCryptPasswordEncoder.encode(user.getPass()));
-        // mechanizm tworzacy admina gdy baza danych uzytkownikow jest pusta
-        //TODO ZMIENIC MIECHANIZM NA ADMINA
+
         if(findAllUsers().isEmpty()){
             user.setAdmin(true);
         }

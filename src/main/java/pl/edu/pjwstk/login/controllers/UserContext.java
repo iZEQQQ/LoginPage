@@ -29,6 +29,5 @@ public class UserContext implements Serializable {
     public boolean getAdminRole() {
         return user.getAdmin();
     }
-//TODO ZMIENIC ADMINA
 
 }
