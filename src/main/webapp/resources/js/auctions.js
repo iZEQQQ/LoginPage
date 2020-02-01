@@ -33,7 +33,7 @@ function renderCategories(branchName, categories){
     }
 }
 
-function renderAuctions( auctions){
+function renderAuctions(     auctions){
     $("#auctions").removeClass("hidden");
     let auctionsBody = $("#auctionsBody");
     auctionsBody.empty();
@@ -48,4 +48,4 @@ function renderAuctions( auctions){
 //TODO dodać przycisk i przekazać id aukcji i on click ma
 // wywolac funkcje z js ale parametr to bedzie z expresion languiage by
 // wywolac id aukcji
-//pt 18 zaj
+//sob 11 zaj

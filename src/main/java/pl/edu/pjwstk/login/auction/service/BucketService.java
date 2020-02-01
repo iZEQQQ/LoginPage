@@ -55,4 +55,7 @@ public class BucketService {
             em.persist(element);
         }
     }
+
+    public void delete(int id) {
+    }
 }

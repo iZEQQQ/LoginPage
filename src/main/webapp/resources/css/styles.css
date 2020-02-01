@@ -7,3 +7,10 @@ body {
     background-image: url("#{resource['img:background.png']}")
 }
 
+#basket {
+    position: absolute;
+    right: 200px;
+    width: 400px;
+    background-color: red;
+}
+/*TODO pododawac laniejszy css na popup*/

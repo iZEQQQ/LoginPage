@@ -29,10 +29,12 @@ public class Auction implements Serializable {
     @DecimalMax("999999999.99")
     private Double price;
 
+    @JsonbTransient
     @Fetch(FetchMode.SUBSELECT)
     @OneToMany(mappedBy = "auction", fetch = FetchType.EAGER, orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE})
     private List<AuctionParameter> auctionParameterList = new ArrayList<>();
 
+    @JsonbTransient
     @Fetch(FetchMode.SUBSELECT)
     @OneToMany(mappedBy = "auction", fetch = FetchType.EAGER, orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE})
     private List<Photo> photoList = new ArrayList<>();
@@ -62,6 +64,7 @@ public class Auction implements Serializable {
         return Objects.hash(id, title, description, price, auctionParameterList, photoList, user, category);
     }
 
+    @JsonbTransient
     @ManyToOne
     private Category category;
 
@@ -109,6 +112,7 @@ public class Auction implements Serializable {
         this.auctionParameterList = auctionParameterList;
     }
 
+    @JsonbTransient
     public Photo getFirstPhoto() {
         if (photoList == null || photoList.isEmpty()) {
             return null;

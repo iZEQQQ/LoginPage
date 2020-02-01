@@ -31,4 +31,15 @@ public class BucketResource {
         service.addToBucket(add.getAuctionid());
         return Response.ok().build();
     }
+
+//    @Path("bucket/elements")
+//    @Consumes({MediaType.APPLICATION_JSON})
+//    @DELETE
+//    public Response deleteFromBucket(Auction auction){
+//        service.delete(auction.getId);
+//        return Response.ok().build();
+//
+//    }
+
+
 }

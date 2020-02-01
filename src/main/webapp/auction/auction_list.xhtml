@@ -7,6 +7,8 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
     <h:head>
+        <h:outputScript library="js" name="jquery-3.4.1.js"/>
+        <h:outputScript library="js" name="basket.js"/>
         <h:outputStylesheet library="css" name="styles.css"/>
     </h:head>
     <h:body>
@@ -34,9 +36,33 @@
                     <f:param name="id" value="#{auction.id}"/>
                 </h:button>
             </h:column>
+            <h:column>
+                <h:button value="Add" onclick="addToBasket(#{auction.id});return false;"/>
+            </h:column>
         </h:dataTable>
         <h:button value="Back" outcome="/logged_welcome.xhtml"/>
 
     </h:body>
 </f:view>
+<h:button onclick="showBasket();return false;" value=" Show Basket"/>
+<div id="basket" style="display: none" >
+    <table>
+        <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+        </tr>
+        </thead>
+        <tbody id="basketBody">
+
+        </tbody>
+    </table>
+    <button onclick="$('#basket').hide();return false;">
+        hide
+    </button>
+</div>
+
+
 </html>
+

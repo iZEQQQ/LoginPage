@@ -2,6 +2,7 @@ package pl.edu.pjwstk.login.auction.model;
 
 import pl.edu.pjwstk.login.model.User;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -15,6 +16,7 @@ public class BucketElement implements Serializable {
     private int id;
     private LocalDateTime added;
     private int count;
+    @JsonbTransient
     @JoinColumn(name = "userid")
     @ManyToOne
     private User user;
